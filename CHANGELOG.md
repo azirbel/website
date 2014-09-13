@@ -36,3 +36,13 @@ you're able to laugh at your old work, you're making progress.
 * Add new project: Quadrotor!
 * Update my info. Add a resume! (Removed here)
 
+### Version 3.0.0 _(March 26, 2013)_
+
+* Excited to start at Addepar, I decide to build a site in Ember.js
+  * I pretty much do everything wrong, but it's not a total disaster
+* Decide Fertigo Pro is the coolest font, use it for all headers
+* Pretty pictures for the project list!
+* Very light crosshatch background
+* Overly optimistic "essays" page remains unpopulated for over a year
+* Colorful "links" page quickly directs users to more useful sites
+
