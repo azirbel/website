@@ -1,69 +1,62 @@
-.heading {
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 24px;
-	font-style: italic;
-	font-weight: bold;
-	color: #840000;
-}
-.normalText {
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: bold;
-	color: #600;
-	padding-left: 20px;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-}
-.lowerleft {
-	left: 0px;
-	bottom: 0px;
-	position: absolute;
-}
-.rightdiv {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	height: 100%;
-	width: 501px;
-	margin: 0px;
-	padding: 0px;
-}
-.righttable {
-	top: 0px;
-	right: 0px;
-	position: absolute;
-	height: 100%;
-	width: 500;
-	margin: 0px;
-	padding: 0px;
-}
-.toppic {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-}
-.maindiv {
-	position: absolute;
-	width: 50%;
-	top: 0px;
-	height: 100%;
-	right: 380px;
-	z-index: 1;
-}
-.maintable {
-	height: 100%;
-	width: 100%;
-	margin: 0px;
-	padding: 0px;
-	top: 0px;
-	position: static;
-	color: #000;
-	right: 0px;
+body
+{
+/*	background-color:#f3ecd8;*/
+	background-color:#faf3df;
+    background-image:url('images/luckyeightsbot.png');
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    background-attachment: fixed;
 }
 
-.menutable {
-	right: 40px;
-	position: absolute;
+p
+{
+	color:#947d38;
+	font-size:12px;
+	font-family:"Sans";
+	text-align:justify;
+	line-height:18px;
+}
+
+p.link
+{
+	color:#947d38;
+}
+
+h1
+{
+	color:#947d38;
+	font-variant:small-caps;
+	width:490;
+	font-size:18px;
+	font-family:"Sans";
+	text-align:left;
+}
+
+ul
+{
+	list-style-type: none;
+}
+
+a:link
+{
+	color:#947d38;
+	text-decoration:underline;
+}
+a:visited
+{
+	color:#947d38;
+	text-decoration:underline;
+
+}
+a:hover
+{
+	color:#947d38;
+	text-decoration:none;
+}
+a:active
+{
+}
+html
+{
+    overflow-y: scroll;
 }
