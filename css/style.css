@@ -1,0 +1,83 @@
+html {
+	/* Keep a scroll bar on at all times, even if disabled */
+	overflow-y: scroll;
+}
+
+body {
+	/* Tiling background from subtlepatterns.org */
+    background-image: url('../img/bg.png');
+}
+
+/* Using the font Fertigo Pro for headers. */
+@font-face {
+	font-family: 'Fertigo Pro';
+	src: url('../static/font/fertigo_pro.eot');
+	src: url('../static/font/fertigo_pro.eot?#iefix') 	format('embedded-opentype'),
+	     url('../static/font/fertigo_pro.woff') 		format('woff'),
+	     url('../static/font/fertigo_pro.ttf') 			format('truetype'),
+	     url('../static/font/fertigo_pro.svg#webfont') 	format('svg');
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+	font-family: 'Fertigo Pro', sans-serif;
+}
+
+h1 {
+	color: #aa0000;
+}
+
+/* Links in general */
+a {
+  color: #aa0000;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #dd0000;
+  text-decoration: underline;
+}
+
+/* Take bullet points off lists */
+ul {
+	list-style-type: none;
+}
+
+/* The lists on the "about" page */
+.about_list {
+	line-height: 30px;
+}
+
+/* Links and hover for the nav bar */
+.nav > li > a {
+  display: block;
+  color: #333333;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  color: #ffffff;
+  text-shadow: 0 0 0 0;
+  text-decoration: none;
+  background-color: #aa0000;
+}
+
+/* Darken the borders on the thumbnails */
+.thumbnail {
+  border: 1px solid #bbb;
+}
+
+/* My icons on the "links" page aren't a full 64x64. Adjust the text so
+   it is aligned with the pictures. */
+.media-body {
+	margin-top: 6px;
+}
+
+#content {
+	margin-top: 40px;
+}
+
+#sidebar {
+	margin-top: 40px;
+}
