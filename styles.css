@@ -1,34 +1,33 @@
 body
 {
-/*	background-color:#f3ecd8;*/
 	background-color:#faf3df;
-    background-image:url('images/luckyeightsbot.png');
-    background-repeat:no-repeat;
-    background-position:center bottom;
-    background-attachment: fixed;
+  background-image:url('images/luckyeightsbot.png');
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-attachment: fixed;
 }
 
 p
 {
-	color:#947d38;
+  color:#3d220e;
 	font-size:12px;
-	font-family:"Sans";
+  font-family:Verdana,Arial,sans-serif;
 	text-align:justify;
-	line-height:18px;
+	line-height:20px;
 }
 
 p.link
 {
-	color:#947d38;
+  color:#3d220e;
 }
 
 h1
 {
-	color:#947d38;
+  color:#aa0000;
 	font-variant:small-caps;
 	width:490;
 	font-size:18px;
-	font-family:"Sans";
+  font-family:Verdana,Arial,sans-serif;
 	text-align:left;
 }
 
@@ -39,18 +38,17 @@ ul
 
 a:link
 {
-	color:#947d38;
+  color:#3d220e;
 	text-decoration:underline;
 }
 a:visited
 {
-	color:#947d38;
+  color:#3d220e;
 	text-decoration:underline;
-
 }
 a:hover
 {
-	color:#947d38;
+  color:#3d220e;
 	text-decoration:none;
 }
 a:active
@@ -60,3 +58,4 @@ html
 {
     overflow-y: scroll;
 }
+
