@@ -1,0 +1,89 @@
+@import 'variables';
+@import 'typography';
+
+html {
+  overflow-y: scroll;
+}
+
+html, body {
+  margin: 0;
+  scroll: auto;
+}
+
+* {
+  font-family: 'Source Sans Pro', 'Verdana';
+  font-weight: 300;
+  color: $dark-gray;
+
+  strong {
+    font-weight: normal;
+  }
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+main {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  max-width: $content-width;
+  overflow: hidden;
+}
+
+header {
+  border-bottom: 1px solid #aa0000;
+  text-align: center;
+  overflow: hidden;
+}
+
+.header-tabs {
+  height: $header-tabs-height;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  margin: 16px 0;
+  font-size: 24px;
+  font-weight: normal;
+  color: $red;
+}
+
+ul.navigation {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    float: left;
+    width: 100px;
+    padding: 10px;
+
+    a {
+      height: $header-tabs-height;
+      padding: 10px;
+      font-size: 16px;
+
+      -webkit-transition: all .35s linear;
+      transition: all .35s linear;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      /* Box shadow is kind of an ugly way to do the bottom borders */
+      &.active {
+        -webkit-box-shadow:inset 0px -4px $red;
+        box-shadow:inset 0px -4px $red;
+      }
+    }
+  }
+}
+
+img.project {
+  float: left;
+}
