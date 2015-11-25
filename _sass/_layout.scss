@@ -8,6 +8,8 @@ header {
   color: $primary-color;
   border-bottom: 1px solid $primary-color;
 
+  margin-top: 20px;
+
   .logo {
     text-align: center;
   }
@@ -16,14 +18,30 @@ header {
     ul {
       padding: 0;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
 
       list-style-type: none;
     }
   }
 }
 
+article {
+  overflow: hidden;
+
+  .article-content {
+    float: left;
+    width: 70%;
+  }
+
+  .article-annotations {
+    float: left;
+    width: 30%;
+  }
+}
+
 footer {
   margin-top: 40px;
+  padding-top: 20px;
   text-align: center;
+  border-top: 1px solid $primary-color;
 }
