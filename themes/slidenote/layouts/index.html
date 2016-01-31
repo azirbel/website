@@ -1,0 +1,9 @@
+{{ partial "header.html" . }}
+
+<h1>Hello world!</h1>
+
+{{ range first 10 .Data.Pages }}
+  <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+{{ end }}
+
+{{ partial "footer.html" . }}

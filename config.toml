@@ -1,3 +1,4 @@
+theme = "slidenote"
 baseurl = "http://alexzirbel.com/"
 languageCode = "en-us"
 title = "Alex Zirbel"
