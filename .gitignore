@@ -1,5 +1,6 @@
 node_modules
-static
 public
+staging
+static
 
 .DS_store
