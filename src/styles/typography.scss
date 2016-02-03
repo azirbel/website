@@ -1,0 +1,13 @@
+@import 'variables';
+
+body {
+  font-family: $body-font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+}
+
+p, span {
+  font-family: $body-font-family;
+}

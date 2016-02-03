@@ -1,9 +1,11 @@
 {{ partial "header.html" . }}
 
-<h1>Hello world!</h1>
+<article>
+  {{ partial "mobile-header.html" . }}
 
-{{ range first 10 .Data.Pages }}
-  <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-{{ end }}
+  <h1>Hello world!</h1>
+</article>
+
+{{ partial "sidebar.html" . }}
 
 {{ partial "footer.html" . }}

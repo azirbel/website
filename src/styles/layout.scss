@@ -1,0 +1,63 @@
+@import 'variables';
+
+html, body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  overflow: scroll;
+
+  max-width: $desktop-min-width;
+  margin: auto;
+
+  @include mobile {
+    flex-direction: row-reverse;
+  }
+}
+
+article {
+  width: 700px;
+
+  background-color: yellow;
+
+  @include mobile {
+    flex: 0 0 100vw;
+  }
+
+  @include desktop {
+    flex: 1;
+  }
+}
+
+nav {
+  background-color: #55ff55;
+
+  @include mobile {
+    flex: 0 0 70vw;
+  }
+
+  @include desktop {
+    flex: 0 0 30%;
+  }
+}
+
+header.mobile-only {
+  position: relative;
+
+  background-color: $light-gray;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hamburger {
+    position: absolute;
+    left: 0;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}

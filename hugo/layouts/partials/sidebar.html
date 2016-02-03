@@ -1,0 +1,9 @@
+<nav>
+  <div class="logo-placeholder">X</div>
+  <h1 class="title-name">Alex Zirbel</h1>
+  <p><a href="/">Home</a></p>
+
+  {{ range first 10 .Data.Pages }}
+    <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+  {{ end }}
+</nav>

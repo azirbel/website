@@ -1,0 +1,20 @@
+@mixin mobile {
+  @media (max-width: #{$desktop-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-min-width}) {
+    @content;
+  }
+}
+
+$desktop-min-width: 700px;
+
+$red: #aa0000;
+
+$light-gray: #eeeeee;
+
+$body-font-family: Verdana;
+$header-font-family: Verdana;
