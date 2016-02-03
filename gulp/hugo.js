@@ -28,7 +28,7 @@ gulp.task('hugo:all', ['revision'], function() {
 });
 
 gulp.task('hugo:delete', ['revision'], function() {
-    var dst = path.join(process.cwd(), 'public');   
+    var dst = path.join(process.cwd(), 'public');
     del.sync(dst);
 });
 

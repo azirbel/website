@@ -28,5 +28,8 @@
     "require-dir": "0.3.0",
     "rev": "0.0.1",
     "rev-del": "1.0.5"
+  },
+  "dependencies": {
+    "font-awesome": "^4.5.0"
   }
 }
