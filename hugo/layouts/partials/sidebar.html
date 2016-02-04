@@ -1,8 +1,19 @@
 <nav>
-  <p class="title-name">Alex Zirbel</p>
-  <p><a href="/">Home</a></p>
+  <div class="short-bio">
+    <div class="title-name">Alex Zirbel</div>
+    <div class="small">
+      is a software developer at Opendoor.
+    </div>
+    <div class="small">
+      <a href="https://twitter.com/alexzirbel">
+        <i class="fa fa-twitter"></i>
+        @alexzirbel
+      </a>
+    </div>
+  </div>
 
+  <div><a href="/">Home</a></div>
   {{ range first 10 .Data.Pages }}
-    <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+    <div><a href="{{ .Permalink }}">{{ .Title }}</a></div>
   {{ end }}
 </nav>

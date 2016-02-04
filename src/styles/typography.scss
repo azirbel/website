@@ -13,8 +13,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
 }
 
-p, span {
-  font-family: $body-font-family;
+p, span, div {
+  &.small {
+    font-size: 14px;
+  }
 }
 
 p {
@@ -37,4 +39,15 @@ h2 {
 
   margin-top: $lineheight * 2;
   margin-bottom: $lineheight;
+}
+
+a {
+  color: $red;
+  text-decoration: none;
+
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid $red;
+  }
 }
