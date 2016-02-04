@@ -6,7 +6,7 @@ gulp.task('vendor:css', function() {
 });
 
 gulp.task('vendor:fonts', function() {
-    return gulp.src('node_modules/font-awesome/fonts/fontawesome-webfont.ttf')
+    return gulp.src('node_modules/font-awesome/fonts/fontawesome-webfont.woff2')
         .pipe(gulp.dest('staging/fonts'));
 });
 
