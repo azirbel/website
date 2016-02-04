@@ -4,20 +4,3 @@
 @import 'typography';
 
 @import 'layout';
-
-.logo-placeholder {
-  $size: 40px;
-
-  width: $size;
-  height: $size;
-  line-height: $size;
-  font-size: $size;
-
-  text-align: center;
-
-  border: 3px solid $red;
-  color: $red;
-
-  font-family: sans-serif;
-  font-weight: 200;
-}

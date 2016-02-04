@@ -1,14 +1,36 @@
 @import 'variables';
 
+$mobile-header-height: 40px;
+
 html, body {
   margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// I want the page to be gray so that when it "bounces" after a scroll to the
+// top in e.g. mobile browsers, the background color is light gray.
+body {
+  background-color: $light-gray;
+}
+
+.main-container {
+  background-color: $white;
 }
 
 main {
   display: flex;
   overflow: scroll;
 
-  max-width: $desktop-min-width;
+  background-color: $white;
+
+  max-width: 900px;
   margin: auto;
 
   @include mobile {
@@ -16,10 +38,9 @@ main {
   }
 }
 
-article {
+.content {
   width: 700px;
-
-  background-color: yellow;
+  min-height: 100vh;
 
   @include mobile {
     flex: 0 0 100vw;
@@ -27,18 +48,24 @@ article {
 
   @include desktop {
     flex: 1;
+    padding-top: 40px;
   }
 }
 
-nav {
-  background-color: #55ff55;
+article {
+  padding: 0 20px;
+}
 
+nav {
   @include mobile {
     flex: 0 0 70vw;
+
+    background-color: $light-gray;
   }
 
   @include desktop {
     flex: 0 0 30%;
+    padding-top: 76px;
   }
 }
 
@@ -46,13 +73,14 @@ header.mobile-only {
   position: relative;
 
   background-color: $light-gray;
-  height: 40px;
+  height: $mobile-header-height;
 
+  // To align a logo or title in the center
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .menu {
+  .menu-btn {
     position: absolute;
     left: 0;
   }

@@ -1,7 +1,12 @@
 @import 'variables';
 
+$lineheight: 18px;
+
 body {
   font-family: $body-font-family;
+  font-size: $lineheight;
+  line-height: 30px;
+  color: $black;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10,4 +15,26 @@ h1, h2, h3, h4, h5, h6 {
 
 p, span {
   font-family: $body-font-family;
+}
+
+p {
+  margin-top: $lineheight;
+  margin-bottom: $lineheight;
+}
+
+h1 {
+  font-weight: $bold-weight;
+  font-size: 40px;
+  line-height: $lineheight * 3;
+
+  margin-top: $lineheight * 2;
+  margin-bottom: $lineheight;
+}
+
+h2 {
+  font-weight: $normal-weight;
+  font-size: 28px;
+
+  margin-top: $lineheight * 2;
+  margin-bottom: $lineheight;
 }

@@ -1,10 +1,16 @@
 {{ partial "header.html" . }}
 
-<article>
+<div class="content">
   {{ partial "mobile-header.html" . }}
 
-  <h1>Hello world!</h1>
-</article>
+  <article>
+    {{ range .Data.Pages }}
+      {{ if eq .Type "index" }}
+        {{.Content}}
+      {{end}}
+    {{ end }}
+  </article>
+</div>
 
 {{ partial "sidebar.html" . }}
 

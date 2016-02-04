@@ -1,23 +1,25 @@
+@import 'variables';
+
 @font-face {
   font-family: 'Lora';
   src: url(/fonts/Lora-Regular.ttf) format("truetype");
-  font-weight: normal;
+  font-weight: $normal-weight;
 }
 
 @font-face {
   font-family: 'Lora';
   src: url(/fonts/Lora-Bold.ttf) format("truetype");
-  font-weight: bold;
+  font-weight: $bold-weight;
 }
 
 @font-face {
   font-family: 'Open Sans';
   src: url(/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: normal;
+  font-weight: $normal-weight;
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url(/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: bold;
+  src: url(/fonts/OpenSans-Bold.ttf) format("truetype");
+  font-weight: $bold-weight;
 }
