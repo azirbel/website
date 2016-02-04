@@ -3,7 +3,14 @@ var rev = require('gulp-rev');
 var del = require('rev-del');
 var path = require('path');
 
-gulp.task('revision', ['styles','scripts', 'images', 'svg', 'vendor'], function() {
+gulp.task('revision', [
+  'styles',
+  'scripts',
+  'images',
+  'fonts',
+  'svg',
+  'vendor'
+], function() {
     return gulp.src([
       'staging/css/*.css',
       'staging/js/*.js',
