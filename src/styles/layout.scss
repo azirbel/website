@@ -83,6 +83,14 @@ header.mobile-only {
   .menu-btn {
     position: absolute;
     left: 0;
+    top: 0;
+
+    width: $mobile-header-height;
+    height: $mobile-header-height;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @include desktop {
