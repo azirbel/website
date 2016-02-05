@@ -9,39 +9,28 @@ body {
   color: $black;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $header-font-family;
 }
 
-p, span, div {
+.p, span, div {
   &.small {
     font-size: 14px;
   }
 }
 
-p {
-  margin-top: $lineheight;
-  margin-bottom: $lineheight;
-}
-
-h1 {
+.h1 {
   font-weight: $bold-weight;
   font-size: 40px;
   line-height: $lineheight * 3;
-
-  margin-top: $lineheight * 2;
-  margin-bottom: $lineheight;
 }
 
-h2 {
+.h2 {
   font-weight: $normal-weight;
   font-size: 28px;
-
-  margin-top: $lineheight * 2;
-  margin-bottom: $lineheight;
 }
 
-a {
+.a {
   color: $red;
   text-decoration: none;
 
@@ -50,4 +39,45 @@ a {
   &:hover {
     border-bottom: 1px solid $red;
   }
+}
+
+h1 {
+  @extend .h1;
+
+  margin-top: $lineheight * 2;
+  margin-bottom: $lineheight;
+}
+
+h2 {
+  @extend .h2;
+
+  margin-top: $lineheight * 2;
+  margin-bottom: $lineheight;
+}
+
+h3 {
+  @extend .h3;
+}
+
+h4 {
+  @extend .h4;
+}
+
+h5 {
+  @extend .h5;
+}
+
+h6 {
+  @extend .h6;
+}
+
+p {
+  @extend .p;
+
+  margin-top: $lineheight;
+  margin-bottom: $lineheight;
+}
+
+a {
+  @extend .a;
 }
