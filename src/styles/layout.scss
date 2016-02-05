@@ -35,6 +35,13 @@ main {
 
   @include mobile {
     flex-direction: row-reverse;
+
+    scroll-snap-type: mandatory;
+
+    & > * {
+      scroll-snap-coordinate: 0 0;
+      scroll-snap-coordinate: 0 0;
+    }
   }
 }
 
@@ -91,6 +98,8 @@ header.mobile-only {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    cursor: pointer;
   }
 
   @include desktop {
