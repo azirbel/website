@@ -20,7 +20,7 @@ body {
   background-color: $light-gray;
 }
 
-.main-container {
+.background {
   background-color: $white;
 }
 
@@ -35,6 +35,11 @@ main {
 
   @include mobile {
     flex-direction: row-reverse;
+
+    &::after {
+      content: '';
+      flex: 0 0 80vw;
+    }
 
     scroll-snap-type: mandatory;
 
@@ -65,7 +70,9 @@ article {
 
 nav {
   @include mobile {
-    flex: 0 0 70vw;
+    position: fixed;
+    top: 0;
+    width: 80vw;
 
     background-color: $light-gray;
   }

@@ -1,19 +1,23 @@
 <nav>
-  <div class="short-bio">
-    <div class="h2">Alex Zirbel</div>
-    <div class="small">
-      is a software developer at Opendoor.
-    </div>
-    <div class="small">
-      <a href="https://twitter.com/alexzirbel">
-        <i class="fa fa-twitter"></i>
-        @alexzirbel
-      </a>
-    </div>
+  <h3>Alex Zirbel</h3>
+  <p class="small short-bio">
+    is a software developer at <a href="https://www.opendoor.com/">Opendoor</a>. He loves UI design, music, and bouldering.
+  </p>
+  <div class="small">
+    <a href="/">
+      <i class="fa fa-home"></i>
+      Home
+    </a>
+  </div>
+  <div class="small">
+    <a href="https://twitter.com/alexzirbel">
+      <i class="fa fa-twitter"></i>
+      @alexzirbel
+    </a>
   </div>
 
-  <div><a href="/">Home</a></div>
-  {{ range first 10 .Data.Pages }}
-    <div><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+  <h3>Posts</h3>
+  {{ range first 10 .Site.Pages }}
+    <div class="small"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
   {{ end }}
 </nav>

@@ -16,6 +16,7 @@ body {
 .p, span, div {
   &.small {
     font-size: 14px;
+    line-height: 26px;
   }
 }
 
@@ -28,6 +29,11 @@ body {
 .h2 {
   font-weight: $normal-weight;
   font-size: 28px;
+}
+
+.h3 {
+  font-weight: $normal-weight;
+  font-size: 22px;
 }
 
 .a {
