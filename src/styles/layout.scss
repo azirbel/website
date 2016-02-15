@@ -62,6 +62,9 @@ nav {
 
   @include desktop {
     flex: 1 0 $desktop-nav-min-width;
+    // eyeballed so that the baseline lines up with page title
+    padding-top: 31px;
+    padding-left: 50px;
   }
 }
 

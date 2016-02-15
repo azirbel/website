@@ -1,16 +1,21 @@
 @import 'variables';
 
-$lineheight: 18px;
+// Baseline unit to help keep the font consistent.
+// Not intended as an actual baseline in the verticl-rhythm sense.
+// Just a variable to try to keep the font sizing and margins internally
+// consistent and not adjusted by 1-2px on a whim.
+$baseline: 18px;
 
 body {
   font-family: $body-font-family;
-  font-size: $lineheight;
+  font-size: $baseline;
   line-height: 30px;
   color: $black;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $header-font-family;
+  margin-bottom: $baseline;
 }
 
 .p, span, div {
@@ -18,12 +23,17 @@ body {
     font-size: 14px;
     line-height: 26px;
   }
+
+  &.baseline-spaced {
+    margin-top: $baseline;
+    margin-bottom: $baseline;
+  }
 }
 
 .h1 {
   font-weight: $bold-weight;
   font-size: 40px;
-  line-height: $lineheight * 3;
+  line-height: $baseline * 3;
 }
 
 .h2 {
@@ -50,38 +60,50 @@ body {
 h1 {
   @extend .h1;
 
-  margin-top: $lineheight * 2;
-  margin-bottom: $lineheight;
+  margin-top: $baseline * 2;
+  margin-bottom: $baseline;
 }
 
 h2 {
   @extend .h2;
 
-  margin-top: $lineheight * 2;
-  margin-bottom: $lineheight;
+  margin-top: $baseline * 2;
+  margin-bottom: $baseline;
 }
 
 h3 {
   @extend .h3;
+
+  margin-top: $baseline;
+  margin-bottom: $baseline;
 }
 
 h4 {
   @extend .h4;
+
+  margin-top: $baseline;
+  margin-bottom: $baseline;
 }
 
 h5 {
   @extend .h5;
+
+  margin-top: $baseline;
+  margin-bottom: $baseline;
 }
 
 h6 {
   @extend .h6;
+
+  margin-top: $baseline;
+  margin-bottom: $baseline;
 }
 
 p {
   @extend .p;
 
-  margin-top: $lineheight;
-  margin-bottom: $lineheight;
+  margin-top: 0;
+  margin-bottom: $baseline;
 }
 
 a {
