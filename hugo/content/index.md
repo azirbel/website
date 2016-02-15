@@ -1,8 +1,7 @@
 +++
 type = "index"
+title = "Welcome!"
 
 +++
-
-# Welcome!
 
 Stuff here

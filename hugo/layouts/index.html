@@ -1,13 +1,14 @@
 {{ partial "header.html" . }}
 
-<div class="content">
+<div class="article-container">
   {{ partial "mobile-header.html" . }}
 
   <article>
-    {{ range .Data.Pages }}
+    {{ range .Site.Pages }}
       {{ if eq .Type "index" }}
-        {{.Content}}
-      {{end}}
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
+      {{ end }}
     {{ end }}
   </article>
 </div>

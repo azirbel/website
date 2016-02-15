@@ -1,5 +1,5 @@
 function toggleSidebar() {
-  var mainEl = document.querySelector('main');
+  var mainEl = document.querySelector('.main-container');
   var navEl = document.querySelector('nav');
   var navWidth = Math.ceil(parseFloat(window.getComputedStyle(navEl).width));
 
