@@ -4,3 +4,18 @@
 @import 'typography';
 
 @import 'layout';
+@import 'mobile-header';
+
+// Normalize and set up the basics. Could be a separate file.
+
+html, body {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}

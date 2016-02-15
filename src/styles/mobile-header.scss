@@ -1,0 +1,29 @@
+@import 'variables';
+
+// Styles for the interior of the mobile header.
+// Layout should be done in layout.scss.
+header.mobile-only {
+  position: relative;
+
+  @include mobile {
+    // To align a logo or title in the center
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.mobile-header-menu-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: $mobile-header-height;
+  height: $mobile-header-height;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
