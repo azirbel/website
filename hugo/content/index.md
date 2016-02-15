@@ -1,6 +1,6 @@
 +++
-type = "index"
 title = "Welcome!"
+type = "index"
 
 +++
 

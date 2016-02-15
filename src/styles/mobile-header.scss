@@ -25,5 +25,10 @@ header.mobile-only {
   align-items: center;
   justify-content: center;
 
+  // Faster touch handling (remove 300ms delay).
+  // See https://gist.github.com/gajus/bbf06ea2e37047b01e70
+  // TODO(azirbel): Duplicated with style.scss; not sure it's working.
+  touch-action: manipulation;
+
   cursor: pointer;
 }

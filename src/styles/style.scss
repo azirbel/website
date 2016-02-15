@@ -16,6 +16,12 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  // Faster touch handling (remove 300ms delay).
+  // See https://gist.github.com/gajus/bbf06ea2e37047b01e70
+  touch-action: manipulation;
+}
+
 *, *::before, *::after {
   box-sizing: inherit;
 }

@@ -3,6 +3,10 @@ languageCode = "en-us"
 title = "Alex Zirbel"
 author = "azirbel"
 
+[taxonomies]
+  tag = "tags"
+  series = "series"
+
 [params]
   logo      = "/images/logo.jpg"
   copyright = "Alex Zirbel. All rights reserved."

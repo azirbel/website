@@ -3,10 +3,6 @@
 // I want the page to be gray so that when it "bounces" after a scroll to the
 // top in e.g. mobile browsers, the background color is light gray.
 body {
-  background-color: $light-gray;
-}
-
-.background {
   background-color: $white;
 }
 
@@ -36,7 +32,10 @@ body {
 .article-container {
   @include mobile {
     flex: 0 0 100vw;
+
+    overflow-y: hidden;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 
   @include desktop {
@@ -53,7 +52,10 @@ nav {
 
   @include mobile {
     flex: 0 0 $mobile-nav-width;
+
+    overflow-y: hidden;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
     background-color: $light-gray;
   }

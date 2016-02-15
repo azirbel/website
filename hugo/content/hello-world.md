@@ -1,7 +1,7 @@
 +++
-date = "2016-01-30T18:57:14-08:00"
-draft = true
 title = "Hello World"
+date = "2016-01-30T18:57:14-08:00"
+type = "not"
 
 +++
 
