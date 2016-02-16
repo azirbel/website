@@ -1,17 +1,3 @@
-// SASS helpers (could go in a separate file)
-
-@mixin mobile {
-  @media (max-width: #{$desktop-min-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$desktop-min-width}) {
-    @content;
-  }
-}
-
 // Desktop layout
 
 $desktop-article-min-width: 500px;
@@ -43,3 +29,29 @@ $header-font-family: 'Open Sans', Verdana;
 
 $bold-weight: 600;
 $normal-weight: 400;
+
+// SASS helpers (could go in a separate file)
+
+@mixin mobile {
+  @media (max-width: #{$desktop-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-min-width}) {
+    @content;
+  }
+}
+
+.hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}

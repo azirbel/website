@@ -25,3 +25,10 @@ body {
 *, *::before, *::after {
   box-sizing: inherit;
 }
+
+// Temporary logo
+img.temp-logo {
+  display: block;
+  width: 30px;
+  height: 30px;
+}

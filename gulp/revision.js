@@ -7,6 +7,7 @@ gulp.task('revision', [
   'styles',
   'scripts',
   'images',
+  'favicon',
   'fonts',
   'svg',
   'vendor'
@@ -15,6 +16,7 @@ gulp.task('revision', [
       'staging/css/*.css',
       'staging/js/*.js',
       'staging/fonts/*.*',
+      'staging/favicon.ico',
       'staging/img/*.*',
       'staging/svg/*.svg'
     ], { base: path.join(process.cwd(), 'staging') })
