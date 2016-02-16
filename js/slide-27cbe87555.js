@@ -1,0 +1,1 @@
+function toggleSidebar(){var e=document.querySelector(".main-container"),t=document.querySelector("nav"),o=Math.ceil(parseFloat(window.getComputedStyle(t).width));e.scrollLeft<o/2?e.scrollLeft=o:e.scrollLeft=0}

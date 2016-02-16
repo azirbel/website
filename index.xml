@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alex Zirbel</title>
+    <link>http://alexzirbel.com/</link>
+    <description>Recent content on Alex Zirbel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Feb 2016 17:10:14 -0800</lastBuildDate>
+    <atom:link href="http://alexzirbel.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://alexzirbel.com/hello-world/</link>
+      <pubDate>Mon, 15 Feb 2016 17:10:14 -0800</pubDate>
+      
+      <guid>http://alexzirbel.com/hello-world/</guid>
+      <description>&lt;p&gt;This post is in the works. Check back later!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Welcome!</title>
+      <link>http://alexzirbel.com/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://alexzirbel.com/</guid>
+      <description>&lt;p&gt;This is my new website and blog!&lt;/p&gt;
+
+&lt;p&gt;Once I have a few posts or projects, I&amp;rsquo;ll list them here. In the meantime,
+here&amp;rsquo;s my only post:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://alexzirbel.com/hello-world/&#34;&gt;Hello World&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I made this blog using &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. It was a great experience,
+and I&amp;rsquo;d definitely recommend it. The only tough part was that I wanted to use
+SASS and other new stuff, which required having a build process. You can see my
+setup &lt;a href=&#34;https://github.com/azirbel/website&#34;&gt;on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hugo comes with an RSS feed. You can use the RSS icon in the sidebar to get it.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
