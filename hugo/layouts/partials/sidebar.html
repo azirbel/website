@@ -23,7 +23,7 @@
   {{ range first 10 .Site.Pages }}
     {{ if eq .Type "index" }}
     {{ else }}
-      <div><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+      <div><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
     {{ end }}
   {{ end }}
 
