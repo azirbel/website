@@ -8,10 +8,6 @@ author = "azirbel"
   series = "series"
 
 [params]
-  logo      = "/images/logo.jpg"
   copyright = "Alex Zirbel. All rights reserved."
   twitter   = "https://twitter.com/alexzirbel"
-  facebook  = "https://www.facebook.com/alex.zirbel"
-  github    = "https://github.com/azirbel/"
   email     = "alexzirbel@gmail.com"
-  analytics = "UA-12345678-9"
