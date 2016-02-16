@@ -43,3 +43,13 @@ compile?
 ```bash
 while True; do gulp; done
 ```
+
+
+## Deployment
+
+Using instructions at http://www.damian.oquanta.info/posts/one-line-deployment-of-your-site-to-gh-pages.html:
+
+1. git checkout master
+2. git subtree split --prefix dist -b gh-pages
+3. git push -f origin gh-pages:gh-pages
+4. git branch -D gh-pages
