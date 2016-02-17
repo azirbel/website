@@ -1,0 +1,14 @@
+baseurl = "http://alexzirbel.com/"
+languageCode = "en-us"
+title = "Alex Zirbel"
+author = "azirbel"
+
+[taxonomies]
+  tag = "tags"
+  series = "series"
+
+[params]
+  copyright = "Alex Zirbel. All rights reserved."
+  twitter   = "https://twitter.com/alexzirbel"
+  email     = "alexzirbel@gmail.com"
+  environment = "production"

@@ -4,15 +4,17 @@ var gutil = require('gulp-util');
 var path = require('path');
 var del = require('del');
 
-function hugo(drafts) {
+function hugo(isProduction) {
     var src = path.join(process.cwd(), 'hugo');
     var dst = path.join(process.cwd(), 'public');
 
     gutil.log('src: ' + src + ' dst: ' + dst);
 
-    var cmd = 'hugo --config=hugo/config.toml -s ' + src + ' -d ' + dst;
-    if (drafts) {
-        cmd += ' --buildDrafts=true --verbose=true --baseUrl="http://localhost:3000/" ';
+    var cmd = ''
+    if (isProduction) {
+      cmd = 'hugo --config=hugo/prod-config.toml -s ' + src + ' -d ' + dst;
+    } else {
+      cmd = 'hugo --config=hugo/dev-config.toml -s ' + src + ' -d ' + dst;
     }
 
     var result = exec(cmd, {encoding: 'utf-8'});
@@ -20,11 +22,11 @@ function hugo(drafts) {
 }
 
 gulp.task('hugo:draft', function() {
-    hugo(true);
+    hugo(false);
 });
 
 gulp.task('hugo:all', ['revision'], function() {
-    hugo(true);
+    hugo(false);
 });
 
 gulp.task('hugo:delete', ['revision'], function() {
@@ -33,5 +35,5 @@ gulp.task('hugo:delete', ['revision'], function() {
 });
 
 gulp.task('hugo:live', ['hugo:delete'], function() {
-    hugo(false);
+    hugo(true);
 });
