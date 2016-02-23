@@ -24,10 +24,11 @@ $black: #444;
 $light-gray: #eeeeee;
 $white: #ffffff;
 
-$body-font-family: Lora, serif;
-$header-font-family: 'Open Sans', Verdana;
+$body-font-family: Lora, Georgia, serif;
+$header-font-family: 'Open Sans', Verdana, sans-serif;
 
 $bold-weight: 600;
+$semibold-weight: 500;
 $normal-weight: 400;
 
 // SASS helpers (could go in a separate file)

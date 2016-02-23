@@ -8,6 +8,13 @@
 
 @font-face {
   font-family: 'Lora';
+  src: url(/fonts/Lora-Italic.ttf) format("truetype");
+  font-weight: $normal-weight;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lora';
   src: url(/fonts/Lora-Bold.ttf) format("truetype");
   font-weight: $bold-weight;
 }
@@ -16,6 +23,12 @@
   font-family: 'Open Sans';
   src: url(/fonts/OpenSans-Regular.ttf) format("truetype");
   font-weight: $normal-weight;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url(/fonts/OpenSans-Semibold.ttf) format("truetype");
+  font-weight: $semibold-weight;
 }
 
 @font-face {

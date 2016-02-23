@@ -4,11 +4,11 @@
   {{ partial "mobile-header.html" . }}
 
   <article>
-    <h1>{{ .Title }}</h1>
+    <div class="article-title">{{ .Title }}</div>
     {{ .Content }}
 
     <br>
-    <p>Posted on {{ .Date.Format "Mon, Jan 2, 2006" }}</p>
+    <p><em>Posted on {{ .Date.Format "January 2, 2006" }}</em></p>
   </article>
 </div>
 

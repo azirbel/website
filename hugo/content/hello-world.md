@@ -1,112 +1,128 @@
 +++
 title = "Hello World"
-date = "2016-02-21T17:10:14-08:00"
+date = "2016-03-03T23:00:00-08:00"
 +++
 
 This is my first "real" blog post!
 
 At the risk of being boring right out of the gate, I thought I'd use
-this first post to explain why I'm starting a blog.
+this post to explain why I'm starting a blog.
 
 ## On blogs
 
 The first reason I'm starting a blog is because I love blogs and wish that more
 of them existed.
 
-What I like most about blogs:
+In fact, I wish all my friends had blogs.
 
-* They're personal, and the author keeps his or her own voice.
-* They're a conversation starter. Even when the author is wrong, or did poor
-  research, commenters can add something the author missed.
-* They work like the internet's supposed to work (or at least, how I want the
-  internet to work). The author has complete control over the site.
-  Links work like they were intended to, leading you to a rabbit hole of
-  interesting essays and related blogs if you want to keep reading.
-* Posts are short and sweet (or should be), but they still stand on their own.
+Actually, they don't have to be _blogs_. What I like about blogs, and want
+more of, is the mindset they encourage:
 
-In fact, I wish all my friends blogged. The longer, essay format is a nice
-change from facebook and twitter. I like every single blog that my friends _do_
-have.
+* Original content instead of "sharing"
+* Longer writing instead of tweet-sized tidbits
+* Writing with your own voice instead of being a cautious robot
 
-One of my friends is a blog-hater, mostly because blog authors tend to write
-about topics they haven't bothered to research. Which is fair. I've seen a ton
-of posts with the format: "are you trying to decide between X, Y and Z? Well, I
-tried X and it worked for me. I heartily recommend it over the other choices."
-This makes an amateur sound like an expert in X, Y, and Z, even though they
-obviously aren't. The fans of X will spread it like wildfire through social
-media, and it'll show up as a top hit for "X vs Y" on google, and so on.
+Unfortunately, blogs also have the side-effect of being public to world.
+So you can't put anything really personal on them, and you have to be
+careful all the time because you can't just take things _off_ the
+internet.
 
-Which is to say, blogs are pretty much as unreliable as every other type of media.
-[Paul Graham's essay on news and PR](http://www.paulgraham.com/submarine.html)
-was an eye-opener for me.
+I'm not sure why "public" is still the only decent option for blogs. If it
+was easy to start a blog, but restrict it so only your Facebook friends
+could see it, I bet there would be a lot more blogs. Ghost, my favorite
+blogging platform, has a feature called [private
+blogs](https://blog.ghost.org/private-blogs/), but that's not quite enough
+— if someone shares or leaks the password you picked, how would you know?
 
-But in their defense, blogs are at least assumed to be "just some person's
-opinion", so it's a step up from the rest of the press.
+Social-media-authenticated blogs would be great. Just saying.
 
-I agree that bloggers should be more careful to write about topics they
-actually know something about, should be more responsible researchers, and
-should be less pretentious. I'll try to do that in my blog.
+I've already tried to start a blog several times, and never got off the
+ground because I'm very self-conscious about writing publicly. So this
+will be a struggle, but hopefully I'll get better at it over time.
 
-## Writing style
+I think blogs go wrong in two ways, mostly:
 
-The second reason I'm starting a blog is to learn how to write better.
+1. **Arrogance** - when the author starts preaching instead of writing
+   like they were a normal person. Usually happens when the author takes
+   "this worked for me" and turns it into "Having trouble over there? Try
+   doing _this_!"
 
-Writing is still the best way to spread ideas. It's faster to skim than a
-video; parts of an argument can be quoted and discussed; and an
-essay can be shared and discussed as a persuasive unit.
+2. **Lack of research** - when the author makes a recommendation, but
+   doesn't know what they're talking about. This is especially frustrating
+   for technical blogs. If you're comparing X to Y, and you only have
+   experience in X, you'd better _at least_ mention that, right?
 
-So, how to write better?
+So I'll just avoid those two problems, and success should be pretty much
+guaranteed.
 
-My two favorite essayists have put together some great advice. Paul Graham's
-[Write Like You Talk](http://paulgraham.com/talk.html) recommends writing
-in a conversational style. Taking the same ideas farther, Scott Alexander's [Nonfiction Writing
-Advice](http://slatestarcodex.com/2016/02/20/writing-advice/) is great
-for persuasive writing. It's more useful than the stuff I learned in school,
-because (1) Scott Alexander is brilliant and (2) some advice, like
-defending yourself from ad-hominem "counter-arguments", is especially important
-for writing in the world of angry twitter mobs.
+## On writing
 
-I think that even Paul Graham could learn something from that essay,
-given the huge backlash to his essay on Economic Inequality. He made a
-great argument, but he didn't make it digestable for hostile
-readers who were approaching the topic from another direction.
+The second reason I'm starting a blog is to become a better writer.
+
+Despite being at least fifty years old, writing is up there with
+infographics and animated cartoons when it comes to spreading ideas. In
+fact, it might even be better. I'd like to have ideas worth spreading
+someday, and animating cartoons takes too long, so it's time to start
+pracicing my writing.
+
+How to write better?
+
+My two favorite essayists have put together some great advice:
+
+* Paul Graham's [Write Like You Talk](http://paulgraham.com/talk.html)
+  recommends writing in simple, informal language.
+
+* Scott Alexander's [Nonfiction Writing
+  Advice](http://slatestarcodex.com/2016/02/20/writing-advice/) is
+  a little more in-depth, and great for persuasive writing. It's more
+  useful than the stuff I learned in school, because (1) Scott Alexander
+  is brilliant, and (2) some advice, like how to defend yourself from
+  ad-hominem "counter-arguments", is especially important when you're
+  writing in a world containing angry twitter mobs.
+
+After seeing the [backlash](https://news.ycombinator.com/item?id=10826838)
+that Paul Graham got from his essay on economic inequality, I think even
+he could learn something from Scott Alexander. I liked PG's argument, but
+he didn't try nearly hard enough to anticipate and defuse
+counterarguments.
 
 The last bit of writing advice I plan to follow is Patrick McKenzie's
-[Making Your Writing Work Harder For You](https://training.kalzumeus.com/newsletters/archive/content-marketing-strategy).
+[Making Your Writing Work Harder For
+You](https://training.kalzumeus.com/newsletters/archive/content-marketing-strategy).
 Most importantly: good writing should last.
 
-He suggests referring to your writing as "articles" or "essays", because a
-"blog" doesn't imply that the writing will last. Or in his words, "Blog posts
-are quickly-depreciating commoditized drek".
+He recommends calling your writing "articles" or "essays", and not "blog
+posts", because (in his words), "blog posts are quickly-depreciating
+commoditized drek."
 
-I've decided to call this a blog anyway, but I'll try to avoid real-time
-commentary on events, and instead focus on longer-lasting helpful stuff.
-Essays.
+I decided to ignore that advice and call this a blog anyway, but I get it.
+I'll avoid real-time commentary on events, and instead focus on writing
+longer-lasting, thoughtful stuff.
 
-In fact, I even plan to edit my old posts liberally when they go out of date,
-or if I decide that they're embarrassing. Hopefully, this strategy will make me
-less self-conscious (something I struggle with a lot).
+In fact, I even plan to edit my old posts liberally when they go out of
+date, or if I decide that they're embarrassing. Hopefully this strategy
+will also make me less self-conscious about posting in the first place.
 
-Since editing posts after the fact is sometimes uncool, I'll make up for it
-by keeping all the old versions of stuff in my website's
+Since editing posts after the fact is (debatably) uncool, I'll make up for
+it by keeping all the published revisions of my essays in my website's
 [git history](https://github.com/azirbel/website).
 
 ## Topics for this blog
 
-The topic shall be: anything I find interesting in the world of software and
-startups.
+This is a technical, or at least semi-technical, blog. I'll write about
+anything I find interesting in the world of software and startups.
 
 For example, I'd like to write about:
 
 * Projects I'm working on
-* Projects I'd like to work on, but probably won't work on
+* Projects I'd like to work on, but probably won't get to
 * Books I read, and what I thought of them
 * Companies or software products I like
-* Technical advice for UI design and engineering
+* Things I've learned about engineering or design
 
-I'll probably start by writing a series about [vim](TODO: link). It might only
-be interesting to a few people, but it's something I've researched well and
-have strong opinions about.
+I'll probably start by writing a series about
+[vim](http://www.vim.org/weird.php). It might only be interesting to a few
+people, but that's ok.
 
 ## Wrapping up
 
@@ -115,8 +131,9 @@ I love feedback!
 I'm trying to prepare myself mentally, but I think I'll still find it hard to
 write to an audience of just-over-zero people.
 
-If you liked, or didn't like, or had any thoughts whatsoever about something I
-wrote - I'd love to hear it. Even if it's a chat message or one-line email. My
-email address is [alexzirbel@gmail.com](mailto:alexzirbel@gmail.com). If you
-liked what I wrote, then I'm also on twitter as
+If you liked, or didn't like, or had any thoughts whatsoever about
+something I wrote — I'd love to hear it. Even if it's a chat or one-line
+email. My email address is
+[alexzirbel@gmail.com](mailto:alexzirbel@gmail.com). Or if you're on
+twitter and aren't a jerk, I'm over there too as
 [@alexzirbel](https://twitter.com/alexzirbel).

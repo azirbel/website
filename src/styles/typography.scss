@@ -1,29 +1,42 @@
 @import 'variables';
 
 // Baseline unit to help keep the font consistent.
-// Not intended as an actual baseline in the verticl-rhythm sense.
-// Just a variable to try to keep the font sizing and margins internally
-// consistent and not adjusted by 1-2px on a whim.
-$baseline: 18px;
+// Doesn't necessarily need to be strictly adhered to in the vertical-rhythm
+// sense, but should be used where convenient to keep the spacing consistent.
+$baseline: 16px;
 
 body {
   font-family: $body-font-family;
-  font-size: $baseline;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: $baseline * 2;
   color: $black;
+
+  &.show-baselines {
+    // Add a baseline
+    // TODO(azirbel): Enable this via a queryparam flag
+    background: linear-gradient(
+      to bottom,
+      #ffffff,
+      #ffffff 50%,
+      #eeeeee 50%,
+      #eeeeee
+    ) !important;
+
+    background-size: 100% ($baseline * 2) !important;
+  }
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $header-font-family;
-  margin-bottom: $baseline;
 }
 
 .p, span, div {
   &.small {
     font-size: 14px;
-    line-height: 26px;
+    line-height: $baseline * 1.5;
   }
 
+  // TODO(azirbel): Rename to "spaced"
   &.baseline-spaced {
     margin-top: $baseline;
     margin-bottom: $baseline;
@@ -31,19 +44,20 @@ body {
 }
 
 .h1 {
+  font-size: 48px;
   font-weight: $bold-weight;
-  font-size: 40px;
   line-height: $baseline * 3;
 }
 
 .h2 {
-  font-weight: $normal-weight;
-  font-size: 28px;
+  font-size: 32px;
+  font-weight: $semibold-weight;
+  line-height: $baseline * 2.5;
 }
 
 .h3 {
-  font-weight: $normal-weight;
   font-size: 22px;
+  font-weight: $normal-weight;
 }
 
 .a {
@@ -60,50 +74,29 @@ body {
 h1 {
   @extend .h1;
 
-  margin-top: $baseline * 2;
-  margin-bottom: $baseline;
+  margin-top: $baseline * 3;
+  margin-bottom: $baseline * 1.5;
 }
 
 h2 {
   @extend .h2;
 
-  margin-top: $baseline * 2;
-  margin-bottom: $baseline;
+  margin-top: $baseline * 3;
+  margin-bottom: $baseline * 1.5;
 }
 
 h3 {
   @extend .h3;
 
   margin-top: $baseline;
-  margin-bottom: $baseline;
-}
-
-h4 {
-  @extend .h4;
-
-  margin-top: $baseline;
-  margin-bottom: $baseline;
-}
-
-h5 {
-  @extend .h5;
-
-  margin-top: $baseline;
-  margin-bottom: $baseline;
-}
-
-h6 {
-  @extend .h6;
-
-  margin-top: $baseline;
-  margin-bottom: $baseline;
+  margin-bottom: $baseline * 1.5;
 }
 
 p {
   @extend .p;
 
   margin-top: 0;
-  margin-bottom: $baseline;
+  margin-bottom: $baseline * 1.5;
 }
 
 a {

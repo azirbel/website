@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'typography';
 
 // I want the page to be gray so that when it "bounces" after a scroll to the
 // top in e.g. mobile browsers, the background color is light gray.
@@ -66,10 +67,31 @@ nav {
   @include desktop {
     flex: 1 0 $desktop-nav-min-width;
     max-width: $desktop-nav-max-width;
-    // eyeballed so that the baseline lines up with page title
-    padding-top: 42px;
     padding-left: 50px;
   }
+}
+
+.desktop-title {
+  @include desktop {
+    height: $baseline * 8;
+    margin-bottom: $baseline * 2;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.article-title {
+  @extend .desktop-title;
+  @extend .h1;
+
+  @include mobile {
+    margin-top: $baseline * 2;
+    margin-bottom: $baseline * 1.5;
+  }
+}
+
+.sidebar-title {
+  @extend .desktop-title;
 }
 
 header.mobile-only {

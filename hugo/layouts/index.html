@@ -6,7 +6,7 @@
   <article>
     {{ range .Site.Pages }}
       {{ if eq .Type "index" }}
-        <h1>{{ .Title }}</h1>
+        <div class="article-title">{{ .Title }}</div>
         {{ .Content }}
       {{ end }}
     {{ end }}

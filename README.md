@@ -55,3 +55,10 @@ gulp publish
 
 Copy `public` to the `azirbel.github.io` repository. Make a new commit and push
 to master.
+
+
+## Tricks
+
+```
+window.toggleBaselines();
+```

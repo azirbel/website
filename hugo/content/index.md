@@ -16,4 +16,5 @@ and I'd definitely recommend it. The only tough part was that I wanted to use
 SASS and other new stuff, which required having a build process. You can see my
 setup [on Github](https://github.com/azirbel/website).
 
-Hugo comes with an RSS feed. You can use the RSS icon in the sidebar to get it.
+Hugo comes with an RSS feed. If you use RSS, and I know you don't, you can
+use the RSS icon in the sidebar to subscribe.
