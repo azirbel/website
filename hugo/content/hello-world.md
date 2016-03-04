@@ -32,7 +32,7 @@ was easy to start a blog, but restrict it so only your Facebook friends
 could see it, I bet there would be a lot more blogs. Ghost, my favorite
 blogging platform, has a feature called [private
 blogs](https://blog.ghost.org/private-blogs/), but that's not quite enough
-— if someone shares or leaks the password you picked, how would you know?
+- if someone shares or leaks the password you picked, how would you know?
 
 Social-media-authenticated blogs would be great. Just saying.
 
@@ -132,7 +132,7 @@ I'm trying to prepare myself mentally, but I think I'll still find it hard to
 write to an audience of just-over-zero people.
 
 If you liked, or didn't like, or had any thoughts whatsoever about
-something I wrote — I'd love to hear it. Even if it's a chat or one-line
+something I wrote - I'd love to hear it. Even if it's a chat or one-line
 email. My email address is
 [alexzirbel@gmail.com](mailto:alexzirbel@gmail.com). Or if you're on
 twitter and aren't a jerk, I'm over there too as
