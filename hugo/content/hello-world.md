@@ -52,8 +52,7 @@ I think blogs go wrong in two ways, mostly:
    for technical blogs. If you're comparing X to Y, and you only have
    experience in X, you'd better _at least_ mention that, right?
 
-So I'll just avoid those two problems, and success should be pretty much
-guaranteed.
+So I'll just avoid those two problems, and I should be fine?
 
 ## On writing
 
@@ -63,7 +62,7 @@ Despite being at least fifty years old, writing is up there with
 infographics and animated cartoons when it comes to spreading ideas. In
 fact, it might even be better. I'd like to have ideas worth spreading
 someday, and animating cartoons takes too long, so it's time to start
-pracicing my writing.
+practicing my writing.
 
 How to write better?
 
