@@ -127,9 +127,6 @@ people, but that's ok.
 
 I love feedback!
 
-I'm trying to prepare myself mentally, but I think I'll still find it hard to
-write to an audience of just-over-zero people.
-
 If you liked, or didn't like, or had any thoughts whatsoever about
 something I wrote - I'd love to hear it. Even if it's a chat or one-line
 email. My email address is
