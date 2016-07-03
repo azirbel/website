@@ -1,0 +1,61 @@
++++
+title = "Goodbye, Likes and Feeds"
+date = "2016-07-02T17:00:00-08:00"
++++
+
+I've decided to stop using any social media/news site that uses the
+concept of a "like" or a "feed". This is an experiment, so I'll do it for
+a month or so and then post an update on how it's going.
+
+Reading news and social feeds takes a lot of my time, and I don't even
+enjoy it. Or rather, I enjoy it _barely enough_ to scroll down and see one
+more piece of "content." It's like 50% TV, 50% sedative drug. And it's not
+even useful - I might learn a little about what my friends are doing, but
+my relationship with them isn't getting any stronger.
+
+With social networks, it seems like the more you put in, the more you get out.
+But anything I put in will be immediately judged by how many "likes" it gets,
+so I self-censor a lot, and only post things I'm pretty sure will be well
+received. Even then, I'm really self-conscious about it.
+
+## The plan
+
+_Less of these_
+
+1. **Facebook**: Will use this for chats and events only. I installed
+   a chrome plugin that hides the main feed.
+
+2. **Twitter**: No more of this. It's a pity, because people do put cool stuff
+   there.
+
+3. **Instagram**: I set up an account recently, but haven't used it, and will
+   continue not using it.
+
+4. **Hacker News**: To wean me off, I wrote some [custom
+   CSS](http://stylebot.me/) so that I can only see the top 10 posts and
+   can't see a "more" button.
+
+5. **Reddit**: More custom CSS so I can only see the top 20 posts, and no
+   "more" button.
+
+No mobile apps for any of the above.
+
+_More of these_
+
+1. **Directly chatting people**
+
+2. **Emailing people**: Is this still a thing?
+
+3. **Snapchat**: Haven't really gotten into this, so we'll see how it pans
+   out. But it's promising - it feels really personal, and there's less
+   pressure to show off your wonderful life all the time.
+
+4. **RSS readers**: Instead of news, I'll read more blogs. It's easier to
+   escape the filter bubble by following blog links, and I've learned
+   a lot of cool stuff by finding good bloggers and reading their old
+   posts.
+
+5. **Making lists of friends**: Like, if you're reading this, I may be
+   putting you on a list of "people to keep in touch with" right now. Do
+   you think that's weird? Whatever. Let me know and I'll take you off or
+   something.

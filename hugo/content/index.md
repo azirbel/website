@@ -6,10 +6,10 @@ type = "index"
 
 This is my new website and blog!
 
-Once I have a few posts or projects, I'll list them here. In the meantime,
-here's my only post:
+Posts:
 
-[Hello World]({{< relref "hello-world.md" >}})
+* [Hello World]({{< relref "hello-world.md" >}})
+* [Goodbye, Likes and Feeds]({{< relref "goodbye-likes-and-feeds.md" >}})
 
 I made this blog using [Hugo](https://gohugo.io/). It was a great experience,
 and I'd definitely recommend it. The only tough part was that I wanted to use
