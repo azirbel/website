@@ -1,0 +1,163 @@
++++
+title = "Escape the About Page, Episode 1"
+date = "2016-09-12T19:00:00-08:00"
++++
+
+My company hires an artist to draw caricatures of all our employees. We
+take these and put them on our
+[about](https://www.opendoor.com/about) page. It looks like this:
+
+<img src="/img/meet-the-team.png" />
+
+When I joined in August 2015, the same artist drew a picture of me:
+
+<img class="small center" src="/img/alex-emoji1.png" />
+
+I didn't really like it, so I asked for another one. Version 2 looked like
+this:
+
+<img class="small center" src="/img/alex-emoji2.png" />
+
+I didn't really like version 2 either, but I had to admit that the problem was
+probably me. Since I didn't want to ask for a third version, I just skipped the
+onboarding step where I was supposed to add my picture to the website.
+
+[Visnu](https://github.com/visnup) was my onboarding buddy. He nagged me
+for a while to add myself to the website, but I never did. Eventually he
+stopped nagging.
+
+## April 29, 2016
+
+Every Friday we have a company all-hands meeting where we demo our recent work.
+
+At this point I had been at Opendoor for eight months, so I had almost
+forgotten that I wasn't on the website. But apparently Visnu hadn't forgotten,
+and he quietly added me that week:
+
+<img class="padded shadow" src="/img/add-to-about-us.png" />
+
+He triumphantly presented to the company that I was now on the website despite
+my best attempts to hide. There was great applause; everyone laughed. I didn't
+laugh. I was furious.
+
+Ok, I laughed.
+
+Visnu even wrote a test to make sure I couldn't sneak off the website again.
+He's thorough like that.
+
+<img class="padded shadow" src="/img/employee-spec.png" />
+
+I interpreted the test as a challenge to sneak off the website again.
+
+## May 5, 2016
+
+All our code goes through review. To make a change, you submit your code on
+Github, and another engineer reads through it. If they don't have any concerns,
+they add an `lgtm` ("looks good to me") label.
+
+So to sneak off the website, I would have to change the code in a way that
+would be subtle enough to pass code review. Bonus points if the reviewer was
+Visnu.
+
+The plan:
+
+**Step 1**: Change enough code that no sane person would read it all carefully.
+
+> 10 lines of code = 10 issues.<br/>500 lines of code = "looks fine."
+>
+> -- [@iamdevloper](https://twitter.com/iamdevloper/status/397664295875805184)
+
+I found a CSS file that was 422 lines long, and could be broken up into
+multiple files. I broke it up. (That was actually a change I'd been wanting to
+make anyway.)
+
+**Step 2**: Find a way to hide.
+
+The HTML for our "about" page looks like this:
+
+```html
+<li class="col-md-3 col-sm-4 col-xs-12">
+  <img
+    class="img-circle"
+    src="/path/to/assets/about_us/emoji/alexz.png"/>
+  <div class="prose">
+    <h4>Alex Zirbel</h4>
+    <h5>Engineering</h5>
+    <p>
+      Alex joins us from Addepar, where he worked
+      as a frontend engineer. Before that, he
+      studied robotics at Carnegie Mellon.
+    </p>
+  </div>
+</li>
+```
+
+I wrote some CSS so that whenever an image has "alexz" in its filename, it will
+be invisible.
+
+```css
+img[src*=alexz], img[src*=alexz] + div {
+  display: none;
+}
+```
+
+**Step 3**: Hide the new code.
+
+1. Instead of checking for "alexz" in an image's filename, just check for
+   "exz".  That does the same thing, but it's less obvious.
+2. "exz" looks a little like "exclude", so add a fake `.button-exclude` style
+   to make things look more legitimate.
+
+```css
+input[type=submit], input[type=reset], button, .button {
+  // 78 lines of code
+}
+
+.button-exclude, img[src*=exz], img[src*=exz] + div {
+  display: none;
+}
+
+.button-group {
+  // Lots more code
+}
+```
+
+**Step 4**: (Important!) Wait until at least 10pm.
+
+Most people don't work at 10pm, but Visnu will often appear if you tag him
+asking for a review.
+
+**Step 5**: Request code review.
+
+<img class="padded shadow" src="/img/break-up-inputs-css.png" />
+
+**Step 6**: Success!
+
+<img class="center medium" src="/img/visnu-lgtm.png" />
+
+## Results
+
+If you looked at the website in the next few days, you would have seen
+something like this:
+
+<img src="/img/blank-space.png" />
+
+## May 16, 2016
+
+After about a week, I started feeling guilty. The "about" page looked broken
+because of the blank space where I was supposed to be; one of my co-workers
+even filed a bug report about it.
+
+Luckily for my guilt, Visnu figured it out pretty soon. In typical Visnu style,
+he didn't just fix the website -- first he wrote a bot to monitor the page and
+make sure I was there. If I wasn't, the bot would sound the alarm.
+
+<img class="center medium" src="/img/missing-zirbel-bot.png" />
+
+_Then_ he fixed the website.
+
+<img class="padded shadow" src="/img/zirbel-check-fix.png" />
+
+Total days in hiding: `11`<br/>Total days on website: `7` (and counting)
+
+Part 2 coming soon!
