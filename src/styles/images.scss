@@ -1,0 +1,25 @@
+@import 'variables';
+
+img {
+  &.small {
+    width: 30%;
+  }
+
+  &.medium {
+    width: 60%;
+  }
+
+  &.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.shadow {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+    border-radius: $border-radius;
+  }
+
+  &.padded {
+    padding: 10px;
+  }
+}

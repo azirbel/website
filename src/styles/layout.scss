@@ -40,7 +40,8 @@ body {
   }
 
   @include desktop {
-    flex: 1 0 $desktop-article-min-width;
+    width: ($desktop-article-min-width / $desktop-min-width) * 100%;
+    min-width: $desktop-article-min-width;
     max-width: $desktop-article-max-width;
   }
 }
@@ -65,7 +66,8 @@ nav {
   }
 
   @include desktop {
-    flex: 1 0 $desktop-nav-min-width;
+    width: ($desktop-nav-min-width / $desktop-min-width) * 100%;
+    min-width: $desktop-nav-min-width;
     max-width: $desktop-nav-max-width;
     padding-left: 50px;
   }
@@ -73,7 +75,7 @@ nav {
 
 .desktop-title {
   @include desktop {
-    height: $baseline * 8;
+    height: $baseline * 10;
     margin-bottom: $baseline * 2;
     display: flex;
     align-items: flex-end;

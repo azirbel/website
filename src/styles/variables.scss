@@ -1,9 +1,9 @@
 // Desktop layout
 
 $desktop-article-min-width: 500px;
-$desktop-nav-min-width: 280px;
-
 $desktop-article-max-width: 650px;
+
+$desktop-nav-min-width: 280px;
 $desktop-nav-max-width: 330px;
 
 $desktop-min-width: $desktop-article-min-width + $desktop-nav-min-width;
@@ -30,6 +30,8 @@ $header-font-family: 'Open Sans', Verdana, sans-serif;
 $bold-weight: 600;
 $semibold-weight: 500;
 $normal-weight: 400;
+
+$border-radius: 4px;
 
 // SASS helpers (could go in a separate file)
 

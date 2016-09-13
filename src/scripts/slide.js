@@ -28,7 +28,7 @@ window.toggleBaselines = function() {
     setBaselines(true);
     return '👀';
   }
-}
+};
 
 document.addEventListener('DOMContentLoaded', function() {
   if (localStorage.getItem('baselines') === 'show') {

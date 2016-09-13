@@ -3,6 +3,7 @@
 @import 'fonts';
 @import 'typography';
 
+@import 'images';
 @import 'layout';
 @import 'mobile-header';
 
@@ -12,18 +13,15 @@ html, body {
   margin: 0;
 }
 
-html {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
 body {
   // Faster touch handling (remove 300ms delay).
   // See https://gist.github.com/gajus/bbf06ea2e37047b01e70
+  // TODO(azirbel): Not sure if this is working
   touch-action: manipulation;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
 }
 
 ul, ol {
@@ -36,4 +34,22 @@ img.temp-logo {
   display: block;
   width: 30px;
   height: 30px;
+}
+
+code, pre {
+  background-color: $light-gray !important; // Need to override highlight.js
+
+  padding: 4px 6px;
+
+  border-radius: $border-radius;
+}
+
+pre {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+img {
+  display: block;
+  width: 100%;
 }
