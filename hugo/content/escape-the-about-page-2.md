@@ -1,0 +1,251 @@
++++
+title = "Escape the About Page, Episode 2"
+date = "2018-02-26T10:00:00-08:00"
++++
+
+*Previous in series: [Episode 1]({{< relref "escape-the-about-page-1.md" >}})*
+
+Sneaking off the about page a second time would be harder. My co-workers were
+suspicious of me, and on top of that, Visnu had a bot checking the page every
+now and then to make sure I was there. I wasn't sure how the bot worked, since I
+couldn't see its source code.
+
+I was still determined to make it through a proper code review while sneaking
+off. One weak point might be a file called `employees.yml` which stored
+information about all our employees for the website. Here's an excerpt:
+
+```yml
+- name: Alex Zirbel
+  phone: '(555) 123-4567'
+  email: alex@opendoor.com
+  slack: alex
+  website: true
+  icon: about_us/emoji/alexz.png
+  role: Engineering
+  description: Alex joins us from Addepar, where he
+      worked as a frontend engineer. Before that, he
+      studied robotics at Carnegie Mellon.
+```
+
+This data was then used in the "about" page template:
+
+```slim
+section#team: .container.text-center
+  h2 Meet the team
+  ul.row.center-xs
+    - for employee in Employee.sorted_for_website
+      li.col-md-3.col-sm-4.col-xs-12
+        img.img-circle src=image_url(employee.icon))
+        .prose
+          h4 = employee.name.html_safe
+          h5 = employee.role
+          p = employee.description.html_safe
+```
+
+I figured I could hide some code in my employee description, and `html_safe`
+got my attention. `employee.role` looked unsafe - was there something here I
+could exploit?
+
+Turned out I had it backwards, `html_safe` is used to mark things that are
+*already* safe, so they *don't* get any protection. I was in business!
+
+Here's how my trick worked:
+
+**Step 1**: Use an image to run javascript.
+
+Images have an `onerror` property that runs javascript if an image fails to
+load. It's one of the reasons why you have to be careful with user-submitted
+content, like when you allow users to write comments. One commenter can post
+this:
+
+```html
+Hey, check out my image!
+<img src="http://NOPE" onerror="alert('surprise!')" />
+```
+
+…and then the next commenter to view the page will get a popup that says
+"surprise!". (Or more likely, they will get their personal information stolen
+by some nasty code that commenter 1 had written instead).
+
+If I could add an image to my description, I could write some nasty code too.
+
+**Step 2**: Use javascript to disappear.
+
+Let's say I got step 1 working. How could I get off the page?
+
+I needed to disappear, but not in a way that would trigger
+Visnu's watchdog bot. I figured (but wasn't sure) that he was using something
+like `body.innerText.includes('zirbel')` to check.
+
+So to hide, I'd fetch the part of the HTML where I appear:
+
+```javascript
+var alex = document
+  .querySelector('li img[src*=\'alex.png\']')
+  .parentElement;
+```
+
+Then move myself out of the list, to the bottom of the page, and make me
+invisible[^1]:
+
+```javascript
+document.getElementById('team')
+  .appendChild(alex)
+  .setAttribute('style', 'position:absolute; opacity:0;');
+```
+
+**Step 3**: Gaslight.
+
+What if Visnu's bot is more clever than I think, and knows I'm gone?
+
+Then we would need to convince Visnu that his bot is broken.
+
+I put together a new description:
+
+```html
+Alex joins us from Addepar, where he worked as a
+frontend engineer. Before that, he studied robotics
+at Carnegie Mellon.
+<img
+  src="http://aitk.nfshost.com/cdn/optimizely/673.png"
+  style="display: none"
+  onerror="..."
+/>
+```
+
+* `aitk.nfshost.com` is a domain I happened to own[^2], which seemed obscure
+  enough in case anyone stumbled across it. (They might: when the image fails
+  to load, there will be an error in the website's developer tools).
+* `cdn/optimizely` is there because I can make any folders I want on a domain I
+  own, and if people think the the marketing team just messed up their A/B
+  test, the error becomes an
+  [SEP](https://en.wikipedia.org/wiki/Somebody_else%27s_problem).
+* `673.png` is a 1x1 pixel image that I uploaded.
+
+The beauty of this setup is that when someone gets suspicious (or Visnu's bot
+sounds the alarm), I can just upload that image again. The invisible `<img>` in
+my description will load, the `onerror` will not fire, and I will still be on
+the page!
+
+**Step 4**: Code review.
+
+How to get my new description past code review?
+
+## May 20, 2016
+
+Github offers both a "unified" and "split" mode for code review. Split mode is
+better in every way.
+
+For example, here's my new description in split mode:
+
+<img class="padded shadow" src="/img/diff1-split.png" />
+
+Pretty suspicious, right?
+
+And here it is in unified mode:
+
+<img class="padded shadow" src="/img/diff1-unified.png" />
+
+Unified mode isn't very good at displaying long lines with lots of whitespace.
+
+Problem is, most engineers use split mode on account of it's better in
+every way. I needed to find someone who was (A) senior enough that they might
+still use unified mode, and (B) too busy to spend much time reviewing my
+change. That person was my manager, [Nolan](https://twitter.com/nolman).
+
+I disguised the change as me upgrading my avatar from v1 to v2 (see the first
+couple images of [Episode 1]({{< relref "escape-the-about-page-1.md" >}})).
+
+<img class="padded shadow" src="/img/diff1-description.png" />
+
+Then it was time to take some risks:
+
+1. Look over Nolan's shoulder to make sure he's using unified mode
+2. Wait until Nolan looks like he's about to get up for lunch
+3. Open the pull request
+4. Spin around, tap Nolan on the back, and ask if he can review it **right
+   now**.
+
+I actually remember Nolan saying something like "you know, I'm really nervous approving any code reviews for you right now, after what happened last week..."
+
+<img class="center medium" src="/img/diff1-lgtm.png" />
+
+## May 21, 2016
+
+On the same day that I snuck my code in, Nolan made a change that broke it.
+Updating avatars in `employees.yml` had become a nuisance, so he changed it so
+that we'd load the avatars from our database.
+
+I had been selecting myself in the list based on the name of my avatar image:
+
+```
+var alex = document
+  .querySelector('li img[src*=\'alex.png\']')
+  .parentElement;
+```
+
+…but `alex.png` was now some random jumble of characters from the database. I
+had escaped from the page for about half a day, but now I was back to square 1,
+and nobody had even noticed.
+
+I wasn't sure I could get another code change through, but figured I'd give it
+a shot.
+
+## June 7, 2016
+
+I disguised the change amidst 312 useless changes to other employee
+descriptions.
+
+<img class="padded shadow" src="/img/diff2-description.png" />
+
+In split mode, the real change looked like this:
+
+<img class="padded shadow" src="/img/diff2-split.png" />
+
+I had also realized that you could link directly to the unified view of a code
+change, by adding `?diff=unified` to the URL!
+
+I waited until lunchtime so the other engineers would be gone, then messaged
+Nolan:
+
+<img class="padded shadow" src="/img/diff2-chat1.png" />
+
+…but, disaster!
+
+He didn't reply and went to lunch. Every minute he didn't reply, there was a
+chance someone else would see the change and call me out. And sure enough,
+Visnu found it.
+
+<img class="center medium" src="/img/diff2-visnu1.png" />
+
+I thought the game was up, but luckily, Github has this handy feature that lets
+you … delete other people's comments? Why do they have that feature?
+
+It wasn't really my place to debate why they had that feature.
+
+<img class="center medium" src="/img/diff2-visnu2.png" />
+
+Nolan got back from lunch and the rest is history.
+
+<img class="padded shadow" src="/img/diff2-chat2.png" />
+
+<img class="center medium" src="/img/diff2-lgtm.png" />
+
+## Results
+
+I waited for a couple hours, then deleted the image on my server to disappear.
+This time there wasn't a gaping hole in the about page, either - I was just
+unlisted.  I figured it might take a while for anyone to catch on.
+
+It took over a month, but Visnu and [Dan](https://twitter.com/soul2197)
+eventually figured it out, and gave me a taste of my own medicine by disguising
+a code change of their own (which also deleted my custom image):
+
+<img class="padded shadow" src="/img/diff3-description.png" />
+
+## 👏
+
+Total days in hiding: `45`<br/>Total days on website: `29` (and counting)
+
+[^1]: Can't use `display: none` or `visibility: hidden` because those will cause `body.innerText.includes('zirbel')` to be false and run the risk of triggering Visnu's bot.
+[^2]: `aitk` stands for "AI toolkit", because while I was a junior in college I figured I might publish a library of AI tools to help with natural language processing and AI task automation, two subjects I knew nothing about. I was a real idiot.

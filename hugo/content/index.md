@@ -11,6 +11,7 @@ Posts:
 * [Hello World]({{< relref "hello-world.md" >}})
 * [Goodbye, Likes and Feeds]({{< relref "goodbye-likes-and-feeds.md" >}})
 * [Escape the About Page, Part 1]({{< relref "escape-the-about-page-1.md" >}})
+* [Escape the About Page, Part 2]({{< relref "escape-the-about-page-2.md" >}})
 
 I made this blog using [Hugo](https://gohugo.io/). It was a great experience,
 and I'd definitely recommend it. The only tough part was that I wanted to use

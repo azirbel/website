@@ -3,6 +3,8 @@ title = "Escape the About Page, Episode 1"
 date = "2016-09-12T19:00:00-08:00"
 +++
 
+*Next in series: [Episode 2]({{< relref "escape-the-about-page-2.md" >}})*
+
 My company hires an artist to draw caricatures of all our employees. We
 take these and put them on our
 [about](https://www.opendoor.com/about) page. It looks like this:
@@ -160,4 +162,4 @@ _Then_ he fixed the website.
 
 Total days in hiding: `11`<br/>Total days on website: `7` (and counting)
 
-Part 2 coming soon!
+*Next in series: [Episode 2]({{< relref "escape-the-about-page-2.md" >}})*
