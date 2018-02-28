@@ -4,6 +4,8 @@ date = "2018-02-26T10:00:00-08:00"
 +++
 
 *Previous in series: [Episode 1]({{< relref "escape-the-about-page-1.md" >}})*
+<br/>
+*Next in series: [Episode 3]({{< relref "return-to-the-about-page.md" >}})*
 
 Sneaking off the about page a second time would be harder. My co-workers were
 suspicious of me, and on top of that, Visnu had a bot checking the page every
@@ -63,7 +65,7 @@ Hey, check out my image!
 <img src="http://NOPE" onerror="alert('surprise!')" />
 ```
 
-…and then the next commenter to view the page will get a popup that says
+...and then the next commenter to view the page will get a popup that says
 "surprise!". (Or more likely, they will get their personal information stolen
 by some nasty code that commenter 1 had written instead).
 
@@ -184,7 +186,7 @@ var alex = document
   .parentElement;
 ```
 
-…but `alex.png` was now some random jumble of characters from the database. I
+...but `alex.png` was now some random jumble of characters from the database. I
 had escaped from the page for about half a day, but now I was back to square 1,
 and nobody had even noticed.
 
@@ -210,7 +212,7 @@ Nolan:
 
 <img class="padded shadow" src="/img/diff2-chat1.png" />
 
-…but, disaster!
+...but, disaster!
 
 He didn't reply and went to lunch. Every minute he didn't reply, there was a
 chance someone else would see the change and call me out. And sure enough,
@@ -243,9 +245,9 @@ a code change of their own (which also deleted my custom image):
 
 <img class="padded shadow" src="/img/diff3-description.png" />
 
-## 👏
-
 Total days in hiding: `45`<br/>Total days on website: `29` (and counting)
+
+*Next in series: [Episode 3]({{< relref "return-to-the-about-page.md" >}})*
 
 [^1]: Can't use `display: none` or `visibility: hidden` because those will cause `body.innerText.includes('zirbel')` to be false and run the risk of triggering Visnu's bot.
 [^2]: `aitk` stands for "AI toolkit", because while I was a junior in college I figured I might publish a library of AI tools to help with natural language processing and AI task automation, two subjects I knew nothing about. I was a real idiot.

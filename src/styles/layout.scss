@@ -47,7 +47,12 @@ body {
 }
 
 article {
-  padding: 0 20px;
+  padding: 0 20px 80px;
+}
+
+.article-footer {
+  background-color: $light-gray;
+  padding: 20px;
 }
 
 nav {
