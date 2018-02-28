@@ -26,7 +26,7 @@
 
   <div class="p baseline-spaced">Posts</div>
 
-  {{ range first 10 .Site.Pages }}
+  {{ range first 5 .Site.Pages }}
     {{ if eq .Type "index" }}
     {{ else }}
       <div><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
