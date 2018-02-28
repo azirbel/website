@@ -221,7 +221,7 @@ Visnu found it.
 <img class="center medium" src="/img/diff2-visnu1.png" />
 
 I thought the game was up, but luckily, Github has this handy feature that lets
-you … delete other people's comments? Why do they have that feature?
+you ... delete other people's comments? Why do they have that feature?
 
 It wasn't really my place to debate why they had that feature.
 
