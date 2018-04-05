@@ -1,0 +1,136 @@
++++
+title = "Hassle-free side project email setup"
+date = "2018-04-05T10:00:00-08:00"
++++
+
+I recently had to add password-reset emails to my project
+[npoint.io](https://www.npoint.io). In case you haven't heard, creating HTML
+emails is a huge mess.
+
+> Think back to 1999, when we called ourselves "webmasters" and used Frontpage,
+> WYSIWYG editors and tables to mark up our websites.
+>
+> **Not much has changed in email design.** In fact, it has gotten worse. With
+> the introduction of mobile devices and more and more email clients, we have
+> even more caveats to deal with when building HTML email.
+
+> -- [Smashing Magazine](https://www.smashingmagazine.com/2017/01/introduction-building-sending-html-email-for-web-developers/)
+
+Here's my research on the best/quickest way to set up emails for a side project
+or as a solo developer.
+
+(TL;DR: I went with [SendGrid](https://sendgrid.com/))
+
+## Sending emails in two steps
+
+There are two challenges in setting up an automated email:
+
+1. Creating an email template
+2. Sending the email
+
+Since I was using Rails, my default option was using Rails mailers. I could
+create a template using a high-level language ([MJML](https://mjml.io/) or
+[ZURB Foundation](https://foundation.zurb.com/)) or a service like [Bee
+Free](https://beefree.io/) that spits out HTML. There's also
+[Litmus](https://litmus.com/) for cross-platform testing, though that was out
+of my budget as an indie developer.
+
+<img class="shadow" src="/img/zurb.png" />
+
+For step 2 (sending), some good tools are [Sparkpost](https://www.sparkpost.com/),
+[Mailgun](https://www.mailgun.com/), and [Postmark](https://postmarkapp.com/).
+They mainly compete on ease-of-use, pricing, and delivery rates (avoiding user
+spam filters).
+
+I was ready to go with ZURB Foundation (templates) + Sparkpost (delivery),
+until I realized there was an easier way.
+
+## Sending emails in one step
+
+There are services that combine (1) and (2). You create a template using their
+template builder, then send them an API request to actually send an email.
+
+This is faster to set up, and doesn't require a deploy to change what an email
+looks like. Ideally, the template editor should also take care of
+cross-platform issues without you even thinking about it.
+
+I think [SendGrid](https://sendgrid.com/) is the best option for a small
+project. They have a WYSIWYG template editor which is (barely) good enough
+for simple emails, and their free tier goes up to 10,000 emails a day.
+
+Honorable mentions:
+[Sparkpost](https://www.sparkpost.com/features/email-templates/) and
+[Posteage](http://postageapp.com/) (no WYSIWYG editing);
+[Iterable](https://iterable.com/) (also handles "when to send" logic, but UI is
+frustrating at best).
+
+Setting up my template in SendGrid was a solid 4/5 star experience:
+
+<img src="/img/sendgrid.png" />
+
+And my app code looks roughly like this: ([real
+code here](https://github.com/azirbel/npoint/blob/master/app/lib/transactional_mail.rb))
+
+```ruby
+def self.reset_password(user)
+  mail = SendGrid::Mail.new
+  mail.from = SendGrid::Email.new(
+    email: 'n:point <support@npoint.io>'
+  )
+
+  personalization = SendGrid::Personalization.new
+  personalization.add_to(
+    SendGrid::Email.new(email: user.email)
+  )
+  personalization.add_substitution(
+    SendGrid::Substitution.new(
+      key: '%name%',
+      value: user.name
+    )
+  )
+
+  mail.add_personalization(personalization)
+  mail.template_id = 'bdf0a64b-087d-4c5f-a955'
+
+  sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+  response = sg.client.mail._('send')
+    .post(request_body: mail.to_json)
+end
+```
+
+
+## Manual emails
+
+I don't like getting emails from `no-reply@lousy-service.com`. I like getting
+emails from `support@great-service.com`, which I can reply to directly.
+
+Setting that up was pretty easy:
+
+#### Inbound emails (Using Namecheap)
+
+1. [Namecheap guide](https://www.namecheap.com/support/knowledgebase/article.aspx/308/77/how-to-setup-email-forwarding)
+2. Add a simple alias (forward `support@` to my personal gmail)
+3. Add a catch-all (forward everything else to my personal gmail, too)
+
+A caveat that bit me for a while: Namecheap might not forward inbound emails if
+they're from the same email account as they're being forwarded to. At least I
+was able to use my old hotmail account for something other than receiving spam.
+
+#### Outbound manual emails (Using Gmail)
+
+1. Add a send-from address in Gmail settings
+2. Uncheck "treat as alias"
+3. Add `smtp.sendgrid.net`
+4. Your username is your [sendgrid
+   username](https://sendgrid.com/docs/Classroom/Troubleshooting/Account_Administration/help_i_cant_find_my_smtp_username_and_password.html);
+   your password is your SendGrid API key.
+
+## Results
+
+Emails look passable:
+
+<img class="padded shadow" src="/img/reset-email.png" />
+
+Bonus: SendGrid is totally happy to send emails in dev mode too. I found this
+to be a feature because it was really easy to test my reset-password flow
+locally.
