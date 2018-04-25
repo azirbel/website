@@ -53,9 +53,14 @@ Build with
 gulp publish
 ```
 
-Copy `public` to the `azirbel.github.io` repository. Make a new commit and push
-to master.
+Deploy with `now.sh`:
 
+```bash
+cd public
+now
+now alias [paste] alexzirbel.com
+now alias [paste] www.alexzirbel.com
+```
 
 ## Tricks
 
