@@ -58,7 +58,6 @@ Deploy with `now.sh`:
 ```bash
 cd public
 now
-now alias [paste] alexzirbel.com
 now alias [paste] www.alexzirbel.com
 ```
 
