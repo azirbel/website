@@ -114,3 +114,28 @@ blockquote {
   font-style: italic;
   border-left: 5px solid $light-gray;
 }
+
+table {
+  border-collapse: collapse;
+  border: 1px solid $medium-gray;
+  margin-bottom: $baseline * 1.5;
+}
+
+th, td {
+  text-align: left;
+  padding: 2px 10px;
+}
+
+th {
+  border-bottom: 1px solid $medium-gray;
+}
+
+tr:nth-child(odd) td {
+  background-color: $light-gray;
+}
+
+.data-table + table {
+  font-family: monospace;
+  font-size: 16px;
+  min-width: 100%;
+}

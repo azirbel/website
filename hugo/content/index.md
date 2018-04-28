@@ -6,6 +6,7 @@ type = "index"
 
 Projects:
 
+* [Touch Bar Timer]({{< relref "touch-bar-timer.md" >}})
 * [n:point]({{< relref "npoint.md" >}})
 
 Stories:
