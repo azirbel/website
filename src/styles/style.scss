@@ -54,8 +54,21 @@ img {
   width: 100%;
 }
 
+img.rounded {
+  border-radius: $border-radius;
+}
+
 .footnotes {
   li {
     margin-top: 24px;
   }
+}
+
+.sidebar-item {
+  font-size: 14px;
+}
+
+sup {
+  position: absolute;
+  margin-top: -6px;
 }

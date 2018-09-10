@@ -4,3 +4,4 @@ staging
 static
 
 .DS_store
+.cache

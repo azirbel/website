@@ -1,0 +1,286 @@
++++
+title = "Two months with GraphQL + Apollo"
+date = "2018-09-10T19:00:00-08:00"
++++
+
+For the last couple months, I've been building a language learning app with a
+friend. We set up the project from scratch, so we got the chance to play with
+some new toys.
+
+All technologies shine in some places more than others, so this reflection only
+makes sense in context. We're making an advanced language learning app with
+some social features. I'm the only developer for now, so it's still a small
+code base.
+
+Here's the frontend stack we went with:
+
+* [React](https://reactjs.org/)
+* [GraphQL](https://graphql.org/)
+* [Apollo](https://www.apollographql.com/docs/react/)
+* [Next.js](https://nextjs.org/)
+
+React is still great.
+
+Here's what I thought of the rest.
+
+## GraphQL
+
+Great idea; main downside is lots of boilerplate. I'd use it again.
+
+This project had a very graph-like schema (lots of relations between objects),
+and I think it's true that GraphQL shines here.
+
+For example, `Users` have
+`Coaches`, `Coaches` can write `Memos` which refer to `Lists` of `Words`, etc.
+There are blissful moments where you can grab part of that data with only
+frontend changes:
+
+```gql
+query userCoachesWords {
+  user {
+    coaches {
+      id
+      lists {
+        words {
+          id
+          english
+          chinese
+        }
+      }
+    }
+  }
+}
+```
+
+In theory this could also make your app very performant, because you could
+fetch exactly the data you need in a single query.
+
+(Not that I actually did that, it sounds hard.)
+
+The downside of GraphQL for me was boilerplate. If I wanted to add another
+property to an object, I'd find myself adding it in many places:
+
+1. The GraphQL query (like `userCoachesWords` above)
+2. The GraphQL mutation(s) (so I can change the data)
+3. My higher-order component for Apollo, which passes the data through to the
+   GraphQL query
+4. The GraphQL server, adding the property as a parameter
+5. The server-side model (of course)
+
+There are times I don't want to deal with this, and just want a CRUD model
+with no configuration. To borrow from Angular a bit:
+
+```javascript
+let word = new Word()
+word.definition = 'New field I made up just now'
+
+word.$save() // Saves all fields to the server,
+             // even the ones I made up just now
+```
+
+Probably this common/lazy case could be solved by a library built on top of
+Apollo. If you know of something similar, let me know!
+
+## Apollo
+
+Apollo is amazing. If I use GraphQL again, it will be mainly to use Apollo.
+
+Data loading in React is annoying. I find myself writing stupid `DataLoader`
+higher-order components and leaving them scattered all over the place,
+forgetting where my data is coming from, and often reloading data I already
+have.
+
+Apollo lets me forget all that.
+
+Out of the box you get the `Query` component, which fetches the data you need
+(specified as a GraphQL string) and provides it to the app:
+
+```jsx
+<Query query={WORDS_QUERY}>
+  {({ data }) => (
+    <Word word={data} />
+  )}
+</Query>
+```
+
+You want loading state?
+
+```jsx
+<Query query={WORDS_QUERY}>
+  {({ data, loading }) => {
+    return loading ? 'Loading...' : <Word word={data} />
+  }}
+</Query>
+```
+
+Data is live and you can't be bothered to set up a websocket?
+
+```jsx
+<Query query={WORDS_QUERY} pollInterval={500}>
+  {({ data }) => (
+    <Word word={data} />
+  )}
+</Query>
+```
+
+Now it polls every 500ms.[^1]
+
+Oh, and all the data is saved in the Apollo cache, so if you navigate away from
+a page and then back, the transition is instant.
+
+### Apollo Mutations: the good side
+
+Mutations are how you change data in GraphQL (Queries just fetch it).
+
+Data management in Apollo is fantastic. Here's how data changes flow through
+the app:
+
+1. Run your mutation
+2. Round-trip to the server
+3. If the response from the server contains an `id`, Apollo knows to update your
+   client-side data. It updates the cache and any existing `<Query>`s.
+
+This is great because data still flows through the app in a predictable way
+(from the `<Query>` components), but it's also auto-updated when you make
+changes!
+
+But the UI updates a little slowly, because it has to wait for the server
+round-trip. What can we do?
+
+Apollo provides an `optimisticResponse` setting for your mutations. You fill
+this in with the data you expect your server to come back with. If we're
+creating a new `Word`, that might look like this:[^2]
+
+```javascript
+  optimisticResponse: {
+    __typename: 'Mutation',
+    word: {
+      __typename: 'Word',
+      id: -1,
+    },
+  },
+```
+
+What happens now if we change some data?
+
+1. Run your mutation
+2. Apollo instantly updates the cache and your `<Query>`s with the
+   `optimisticResponse`. Zero lag!
+3. Round-trip to the server
+4. Apollo *rolls back* the optimistic response from (2)
+5. Apollo swaps in the new data from the server
+
+In almost all cases, you don't notice steps 3-5 and the UI is instant. You can
+do this just about **everwhere**! Worst case, the server rejects your update
+and the UI flickers back to ground truth after a second or so.
+
+This stuff has big UX effects.
+
+Our app has zero "save" buttons. I save data on every keystroke, and
+`optimisticResponse` is so fast that I don't even need to keep any intermediate
+state.
+
+*But Alex, saving on every keystroke? Isn't that a lot of API calls?*
+
+\> Yes, but that's the backend developer's problem.
+
+*But Alex, aren't you also the backend developer?*
+
+\> Oh yeah. Uhhhhh
+
+Just kidding, Apollo has an answer to that too. We tossed in
+[apollo-link-debounce](https://github.com/helfer/apollo-link-debounce) - one
+line of code - and every API call within some interval gets batched up and
+sent together. Really cool!
+
+<img class="rounded" src="/img/link-debounce.gif" />
+
+### Apollo Mutations: the weird side
+
+My only WTF moment in Apollo: the authors clearly want you to write your
+mutations in JSX, like this:
+
+```jsx
+<Mutation mutation={UPDATE_WORD_MUTATION}>
+  {({ updateWord }) => (
+    <Button onClick={updateWord} />
+  )}
+</Mutation>
+```
+
+The `Mutation` component provides the function `updateWord`, which you can
+use inside that part of your component tree. I have two problems with that.
+
+Problem 1: Sometimes I have lots of mutations. So messy!
+
+```
+<Mutation mutation={CREATE_WORD_MUTATION}>
+  {({ createWord }) => (
+    <Mutation mutation={UPDATE_WORD_MUTATION}>
+      {({ updateWord }) => (
+        <Mutation mutation={DELETE_WORD_MUTATION}>
+          {({ deleteWord }) => (
+            <Word />
+          )}
+        </Mutation>
+      )}
+    </Mutation>
+  )}
+</Mutation>
+```
+
+Problem 2: Sometimes I want to use those functions elsewhere, and I end up
+passing them around my component. Awkward.
+
+```jsx
+<Mutation mutation={UPDATE_WORD_MUTATION}>
+  {({ updateWord }) => (
+    <Button onClick={processData(event, updateWord)} />
+  )}
+</Mutation>
+```
+
+I think mutations should resemble redux actions. I don't want them anywhere
+near my DOM, I want to import them as functions and call them from anywhere.
+
+The best workaround I have so far is higher-order components, which I'm doing
+against the advice of the Apollo authors.
+
+```
+class MyComponent extends React.Component {
+  processData(event) {
+    this.props.updateWord()
+  }
+}
+
+export default withUpdateWord(MyComponent)
+```
+
+[(implementation)](https://gist.github.com/azirbel/c78f317e2e217e1782f639b97e066610)
+
+## Next.js
+
+Next.js is a React framework. Among other benefits, it automatically
+server-side renders (SSR) your code. This makes your page **way** faster for
+the initial load.
+
+I'm still a huge [Zeit](https://zeit.co/) fanboy, but Next.js wasn't the right
+fit for this project.
+
+I didn't *really* need SSR, as users have to log in to see pages. And it turned
+out to combo poorly with Apollo and make development confusing.
+
+For example, if I wrote a bad GraphQL query, usually I'd see the error in the
+browser. But since SSR would kick in first, instead I'd see a useless
+`getDataFromTree failed` error in the Next.js console. The page would crash
+before it even got to the browser.
+
+There's probably a way to configure this better and solve my problem, but I
+should have stuck with `create-react-app` for the needs of this project.
+
+That said, I still plan to use Next.js for projects that are a little more
+public-facing and a little less data-hungry.
+
+[^1]: Polling isn't the best way to sync live data and will probably overwork your server if you use it everywhere. Apollo provides plenty of customizations and other options here.
+[^2]: We set the word’s optimistic ID to -1. That’s because IDs are set by the server, and our new word doesn’t have one yet. Not to worry, Apollo is magic and swaps the new ID in under the hood!
+

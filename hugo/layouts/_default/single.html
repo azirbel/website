@@ -7,20 +7,24 @@
     <div class="article-title">{{ .Title }}</div>
     {{ .Content }}
 
-    <br>
-    <p><em>Posted on {{ .Date.Format "January 2, 2006" }}</em></p>
+    {{ if eq (relURL .URL) ("/" | safeHTML) }}
+    {{else}}
+      <br>
+      <p><em>Posted on {{ .Date.Format "January 2, 2006" }}</em></p>
 
-    <div class="article-footer">
-      <p>
-        Hi! I'm Alex, a software developer at <a
-          href="https://www.opendoor.com/">Opendoor</a>. I like UI design,
-        music, and bouldering.
-      </p>
-      Follow me on twitter (
-      <a href="https://twitter.com/alexzirbel">
-        @alexzirbel
-      </a>) for more stories!
-    </div>
+      <div class="article-footer">
+        <p>
+          Hi, I'm Alex. I'm an independent software developer based in
+          <br class="desktop-only"/> San Francisco. Previously, I worked at
+          <a href="https://www.opendoor.com/">Opendoor</a> and
+          <a href="https://addepar.com/">Addepar</a>.
+        </p>
+        Follow me on twitter (
+        <a href="https://twitter.com/alexzirbel">
+          @alexzirbel
+        </a>) for more stories!
+      </div>
+    {{ end }}
   </article>
 </div>
 

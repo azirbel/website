@@ -109,3 +109,15 @@ header.mobile-only {
     display: none;
   }
 }
+
+.mobile-only {
+  @include desktop {
+    display: none;
+  }
+}
+
+.desktop-only {
+  @include mobile {
+    display: none;
+  }
+}
