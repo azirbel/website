@@ -1,20 +1,15 @@
     </div>
 
     {{ if eq .Site.Params.environment "production" }}
-      <!-- Piwik -->
-      <script type="text/javascript">
-        var _paq = _paq || [];
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-          _paq.push(['setTrackerUrl',  'https://api.azirbel.sandcats.io']);
-          _paq.push(['setSiteId', 1]);
-          _paq.push(['setApiToken', '89qlpd31z-2te_6wf6gKIzX1cnbwh5H-lpPZ5bh1VDz']);
-          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-          g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://92vjnc4c61hzroz6rfne.azirbel.sandcats.io/embed.js'; s.parentNode.insertBefore(g,s);
-        })();
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39669237-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39669237-1');
       </script>
-      <!-- End Piwik Code -->
     {{ end }}
   </body>
 </html>
