@@ -1,0 +1,28 @@
+.opacity-enter {
+  opacity: 0;
+}
+.opacity-enter-active {
+  opacity: 1;
+  transition: all var(--transitionTiming);
+}
+.opacity-exit {
+  opacity: 1;
+}
+.opacity-exit-active {
+  opacity: 0;
+  transition: all var(--transitionTiming);
+}
+
+.opacity-in-enter {
+  opacity: 0;
+}
+.opacity-in-enter-active {
+  opacity: 1;
+  transition: all var(--transitionTiming);
+}
+.opacity-in-exit {
+  opacity: 0;
+}
+.opacity-in-exit-active {
+  opacity: 0;
+}

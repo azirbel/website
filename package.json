@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@mdx-js/mdx": "^0.16.6",
+    "@zeit/next-mdx": "^1.2.0",
+    "@zeit/next-sass": "^1.0.1",
+    "next": "^7.0.2",
+    "next-page-transitions": "^1.0.0-alpha.6",
+    "node-sass": "^4.11.0",
+    "prettier": "^1.16.1",
+    "react": "^16.8.0",
+    "react-animate-height": "^2.0.7",
+    "react-dom": "^16.8.0",
+    "react-helmet": "^5.2.0",
+    "react-icons": "^3.5.0",
+    "react-transition-group": "^2.6.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "build:content": "node build.js",
+    "start": "next start"
+  }
+}
