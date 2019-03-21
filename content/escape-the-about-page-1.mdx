@@ -1,7 +1,7 @@
-+++
-title = "Escape the About Page, Episode 1"
-date = "2016-09-12T19:00:00-08:00"
-+++
+export const meta = {
+  title: "Escape the About Page, Episode 1",
+  date: "2016-09-12T19:00:00-08:00",
+}
 
 *Next in series: [Episode 2]({{< relref "escape-the-about-page-2.md" >}})*
 
@@ -9,16 +9,16 @@ My company hires an artist to draw caricatures of all our employees. We
 take these and put them on our
 [about](https://www.opendoor.com/about) page. It looks like this:
 
-<img src="/img/meet-the-team.png" />
+<img src="/static/img/meet-the-team.png" />
 
 When I joined in August 2015, the same artist drew a picture of me:
 
-<img class="small center" src="/img/alex-emoji1.png" />
+<img class="small center" src="/static/img/alex-emoji1.png" />
 
 I didn't really like it, so I asked for another one. Version 2 looked like
 this:
 
-<img class="small center" src="/img/alex-emoji2.png" />
+<img class="small center" src="/static/img/alex-emoji2.png" />
 
 I didn't really like version 2 either, but I had to admit that the problem was
 probably me. Since I didn't want to ask for a third version, I just skipped the
@@ -36,7 +36,7 @@ At this point I had been at Opendoor for eight months, so I had almost
 forgotten that I wasn't on the website. But apparently Visnu hadn't forgotten,
 and he quietly added me that week:
 
-<img class="padded shadow" src="/img/add-to-about-us.png" />
+<img class="padded shadow" src="/static/img/add-to-about-us.png" />
 
 He triumphantly presented to the company that I was now on the website despite
 my best attempts to hide. There was great applause; everyone laughed. I didn't
@@ -47,7 +47,7 @@ Ok, I laughed.
 Visnu even wrote a test to make sure I couldn't sneak off the website again.
 He's thorough like that.
 
-<img class="padded shadow" src="/img/employee-spec.png" />
+<img class="padded shadow" src="/static/img/employee-spec.png" />
 
 I interpreted the test as a challenge to sneak off the website again.
 
@@ -131,18 +131,18 @@ asking for a review.
 
 **Step 5**: Request code review.
 
-<img class="padded shadow" src="/img/break-up-inputs-css.png" />
+<img class="padded shadow" src="/static/img/break-up-inputs-css.png" />
 
 **Step 6**: Success!
 
-<img class="center medium" src="/img/visnu-lgtm.png" />
+<img class="center medium" src="/static/img/visnu-lgtm.png" />
 
 ## Results
 
 If you looked at the website in the next few days, you would have seen
 something like this:
 
-<img src="/img/blank-space.png" />
+<img src="/static/img/blank-space.png" />
 
 ## May 16, 2016
 
@@ -154,11 +154,11 @@ Luckily for my guilt, Visnu figured it out pretty soon. In typical Visnu style,
 he didn't just fix the website -- first he wrote a bot to monitor the page and
 make sure I was there. If I wasn't, the bot would sound the alarm.
 
-<img class="center medium" src="/img/missing-zirbel-bot.png" />
+<img class="center medium" src="/static/img/missing-zirbel-bot.png" />
 
 _Then_ he fixed the website.
 
-<img class="padded shadow" src="/img/zirbel-check-fix.png" />
+<img class="padded shadow" src="/static/img/zirbel-check-fix.png" />
 
 Total days in hiding: `11`<br/>Total days on website: `7` (and counting)
 

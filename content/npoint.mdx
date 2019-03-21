@@ -1,14 +1,14 @@
-+++
-title = "n:point"
-date = "2018-04-24T10:00:00-08:00"
-+++
+export const meta = {
+  title: "n:point",
+  date: "2018-04-24T10:00:00-08:00",
+}
 
 Today I'm officially launching an old side project:
 
 [npoint.io](https://www.npoint.io/) is a JSON storage service with schema
 validation.
 
-<img src="/img/npoint-saved.png" />
+<img src="/static/img/npoint-saved.png" />
 
 It allows you to save JSON bins online (similar to the well-named
 [jsonbin.io](http://jsonbin.io/), which I'm a fan of). n:point is different in
@@ -37,14 +37,14 @@ themselves.
 
 What I wanted was an interface like this to stash my FAQ data:
 
-<img src="/img/npoint-basic.png" />
+<img src="/static/img/npoint-basic.png" />
 
 ...but if I shared a JSON bin directly with our team, I was worried someone
 might forget, say, the "answer" property and break our whole FAQ.
 
 [npoint.io](https://www.npoint.io/) can guarantee that won't happen:
 
-<img src="/img/npoint-schema-error.png" />
+<img src="/static/img/npoint-schema-error.png" />
 
 There are a few other uses I have for n:point:
 
@@ -61,7 +61,7 @@ It's pretty flexible, so maybe there are other uses too!
 
 Most similar tools fall somewhere on the backend-as-a-service spectrum.
 
-<img src="/img/npoint-landscape.png" />
+<img src="/static/img/npoint-landscape.png" />
 
 **JSON Bins** (e.g. [jsonbin.io](http://jsonbin.io/) and
 [jsonstore.io](https://www.jsonstore.io/)): I'm a big fan of these sites, and
