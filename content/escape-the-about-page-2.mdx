@@ -1,11 +1,15 @@
 export const meta = {
-  title: "Escape the About Page, Episode 2",
-  date: "2018-02-26T10:00:00-08:00",
+  title: 'Escape the About Page, Episode 2',
+  date: '2018-02-26T10:00:00-08:00',
+  series: 'escape',
+  tags: ['personal'],
 }
 
-*Previous in series: [Episode 1](/escape-the-about-page-1)*
-<br/>
-*Next in series: [Episode 3](/return-to-the-about-page)*
+_Previous in series: [Episode 1](/escape-the-about-page-1)_
+
+<br />
+
+_Next in series: [Episode 3](/return-to-the-about-page)_
 
 Sneaking off the about page a second time would be harder. My co-workers were
 suspicious of me, and on top of that, Visnu had a bot checking the page every
@@ -49,7 +53,7 @@ got my attention. `employee.role` looked unsafe - was there something here I
 could exploit?
 
 Turned out I had it backwards, `html_safe` is used to mark things that are
-*already* safe, so they *don't* get any protection. I was in business!
+_already_ safe, so they _don't_ get any protection. I was in business!
 
 Here's how my trick worked:
 
@@ -237,7 +241,7 @@ Nolan got back from lunch and the rest is history.
 
 I waited for a couple hours, then deleted the image on my server to disappear.
 This time there wasn't a gaping hole in the about page, either - I was just
-unlisted.  I figured it might take a while for anyone to catch on.
+unlisted. I figured it might take a while for anyone to catch on.
 
 It took over a month, but Visnu and [Dan](https://twitter.com/soul2197)
 eventually figured it out, and gave me a taste of my own medicine by disguising
@@ -247,7 +251,7 @@ a code change of their own (which also deleted my custom image):
 
 Total days in hiding: `45`<br/>Total days on website: `29` (and counting)
 
-*Next in series: [Episode 3](/return-to-the-about-page)*
+_Next in series: [Episode 3](/return-to-the-about-page)_
 
 [^1]: Can't use `display: none` or `visibility: hidden` because those will cause `body.innerText.includes('zirbel')` to be false and run the risk of triggering Visnu's bot.
 [^2]: `aitk` stands for "AI toolkit", because while I was a junior in college I figured I might publish a library of AI tools to help with natural language processing and AI task automation, two subjects I knew nothing about. I was a real idiot.
