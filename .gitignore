@@ -1,7 +1,4 @@
 node_modules
-public
-staging
-static
 
 .DS_store
 .cache
