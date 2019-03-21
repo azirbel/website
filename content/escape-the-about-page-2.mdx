@@ -5,10 +5,7 @@ export const meta = {
   tags: ['personal'],
 }
 
-_Previous in series: [Episode 1](/escape-the-about-page-1)_
-
-<br />
-
+_Previous in series: [Episode 1](/escape-the-about-page-1)_<br />
 _Next in series: [Episode 3](/return-to-the-about-page)_
 
 Sneaking off the about page a second time would be harder. My co-workers were
@@ -29,8 +26,8 @@ information about all our employees for the website. Here's an excerpt:
   icon: about_us/emoji/alexz.png
   role: Engineering
   description: Alex joins us from Addepar, where he
-      worked as a frontend engineer. Before that, he
-      studied robotics at Carnegie Mellon.
+    worked as a frontend engineer. Before that, he
+    studied robotics at Carnegie Mellon.
 ```
 
 This data was then used in the "about" page template:
@@ -65,8 +62,7 @@ content, like when you allow users to write comments. One commenter can post
 this:
 
 ```html
-Hey, check out my image!
-<img src="http://NOPE" onerror="alert('surprise!')" />
+Hey, check out my image! <img src="http://NOPE" onerror="alert('surprise!')" />
 ```
 
 ...and then the next commenter to view the page will get a popup that says
@@ -86,18 +82,17 @@ like `body.innerText.includes('zirbel')` to check.
 So to hide, I'd fetch the part of the HTML where I appear:
 
 ```javascript
-var alex = document
-  .querySelector('li img[src*=\'alex.png\']')
-  .parentElement;
+var alex = document.querySelector("li img[src*='alex.png']").parentElement
 ```
 
 Then move myself out of the list, to the bottom of the page, and make me
 invisible[^1]:
 
 ```javascript
-document.getElementById('team')
+document
+  .getElementById('team')
   .appendChild(alex)
-  .setAttribute('style', 'position:absolute; opacity:0;');
+  .setAttribute('style', 'position:absolute; opacity:0;')
 ```
 
 **Step 3**: Gaslight.
@@ -109,9 +104,8 @@ Then we would need to convince Visnu that his bot is broken.
 I put together a new description:
 
 ```html
-Alex joins us from Addepar, where he worked as a
-frontend engineer. Before that, he studied robotics
-at Carnegie Mellon.
+Alex joins us from Addepar, where he worked as a frontend engineer. Before that,
+he studied robotics at Carnegie Mellon.
 <img
   src="http://aitk.nfshost.com/cdn/optimizely/673.png"
   style="display: none"
@@ -119,14 +113,14 @@ at Carnegie Mellon.
 />
 ```
 
-* `aitk.nfshost.com` is a domain I happened to own[^2], which seemed obscure
+- `aitk.nfshost.com` is a domain I happened to own[^2], which seemed obscure
   enough in case anyone stumbled across it. (They might: when the image fails
   to load, there will be an error in the website's developer tools).
-* `cdn/optimizely` is there because I can make any folders I want on a domain I
+- `cdn/optimizely` is there because I can make any folders I want on a domain I
   own, and if people think the the marketing team just messed up their A/B
   test, the error becomes an
   [SEP](https://en.wikipedia.org/wiki/Somebody_else%27s_problem).
-* `673.png` is a 1x1 pixel image that I uploaded.
+- `673.png` is a 1x1 pixel image that I uploaded.
 
 The beauty of this setup is that when someone gets suspicious (or Visnu's bot
 sounds the alarm), I can just upload that image again. The invisible `<img>` in

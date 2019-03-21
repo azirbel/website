@@ -53,12 +53,40 @@ export default {
 `
 }
 
+const buildTopic = (topic, topicType) => `
+/*
+ * 
+ * 
+ * 
+ * WARNING:
+ * Auto-generated from posts tagged ${topic} by yarn build:content
+ * 
+ * 
+ * 
+ */
+  
+import Topic from '../components/Topic'
+
+export default () => <Topic topic="${topic}" type="${topicType}" />
+`
+
 fileNames = fs.readdirSync('./content')
 contentFileNames = []
+allTags = []
+allSeries = []
 fileNames.forEach(fileName => {
   if (fileName.endsWith('mdx')) {
     console.log(`Compiling ${fileName}`)
     const pageName = fileName.replace(/mdx$/, 'jsx')
+
+    const fileData = fs.readFileSync(`./content/${fileName}`, 'utf8')
+    const tagsMatch = fileData.match(/tags..\[([^\]]*)\]/)
+    const tags = tagsMatch[1].replace(/'| /g, '').split(',')
+    const seriesMatch = fileData.match(/series..'([^']*)'/)
+    const series = seriesMatch && seriesMatch[1]
+    allTags = _.compact(_.uniq(allTags.concat(tags)))
+    allSeries = _.compact(_.uniq(allSeries.concat([series])))
+
     fs.writeFileSync(
       `./pages/${pageName}`,
       prettier.format(
@@ -69,6 +97,24 @@ fileNames.forEach(fileName => {
     contentFileNames.push(fileName)
   }
 })
+allTags.forEach(tag =>
+  fs.writeFileSync(
+    `./pages/${tag}.jsx`,
+    prettier.format(
+      buildTopic(tag, 'tag'),
+      _.merge({ parser: 'babel' }, prettierConfig)
+    )
+  )
+)
+allSeries.forEach(series =>
+  fs.writeFileSync(
+    `./pages/${series}.jsx`,
+    prettier.format(
+      buildTopic(series, 'series'),
+      _.merge({ parser: 'babel' }, prettierConfig)
+    )
+  )
+)
 fs.writeFileSync(
   './content/structure.js',
   prettier.format(
