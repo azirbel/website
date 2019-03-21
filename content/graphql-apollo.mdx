@@ -1,6 +1,8 @@
 export const meta = {
-  title: "Two months with GraphQL + Apollo",
-  date: "2018-09-10T19:00:00-08:00",
+  title: 'Two months with GraphQL + Apollo',
+  date: '2018-09-10T19:00:00-08:00',
+  bannerUrl: '/static/img/graphql-apollo-banner.png',
+  bannerColor: '#33208a',
 }
 
 For the last couple months, I've been building a language learning app with a
@@ -14,10 +16,10 @@ code base.
 
 Here's the frontend stack we went with:
 
-* [React](https://reactjs.org/)
-* [GraphQL](https://graphql.org/)
-* [Apollo](https://www.apollographql.com/docs/react/)
-* [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [GraphQL](https://graphql.org/)
+- [Apollo](https://www.apollographql.com/docs/react/)
+- [Next.js](https://nextjs.org/)
 
 React is still great.
 
@@ -75,7 +77,7 @@ let word = new Word()
 word.definition = 'New field I made up just now'
 
 word.$save() // Saves all fields to the server,
-             // even the ones I made up just now
+// even the ones I made up just now
 ```
 
 Probably this common/lazy case could be solved by a library built on top of
@@ -96,11 +98,7 @@ Out of the box you get the `Query` component, which fetches the data you need
 (specified as a GraphQL string) and provides it to the app:
 
 ```jsx
-<Query query={WORDS_QUERY}>
-  {({ data }) => (
-    <Word word={data} />
-  )}
-</Query>
+<Query query={WORDS_QUERY}>{({ data }) => <Word word={data} />}</Query>
 ```
 
 You want loading state?
@@ -117,9 +115,7 @@ Data is live and you can't be bothered to set up a websocket?
 
 ```jsx
 <Query query={WORDS_QUERY} pollInterval={500}>
-  {({ data }) => (
-    <Word word={data} />
-  )}
+  {({ data }) => <Word word={data} />}
 </Query>
 ```
 
@@ -167,7 +163,7 @@ What happens now if we change some data?
 2. Apollo instantly updates the cache and your `<Query>`s with the
    `optimisticResponse`. Zero lag!
 3. Round-trip to the server
-4. Apollo *rolls back* the optimistic response from (2)
+4. Apollo _rolls back_ the optimistic response from (2)
 5. Apollo swaps in the new data from the server
 
 In almost all cases, you don't notice steps 3-5 and the UI is instant. You can
@@ -180,11 +176,11 @@ Our app has zero "save" buttons. I save data on every keystroke, and
 `optimisticResponse` is so fast that I don't even need to keep any intermediate
 state.
 
-*But Alex, saving on every keystroke? Isn't that a lot of API calls?*
+_But Alex, saving on every keystroke? Isn't that a lot of API calls?_
 
 \> Yes, but that's the backend developer's problem.
 
-*But Alex, aren't you also the backend developer?*
+_But Alex, aren't you also the backend developer?_
 
 \> Oh yeah. Uhhhhh
 
@@ -202,9 +198,7 @@ mutations in JSX, like this:
 
 ```jsx
 <Mutation mutation={UPDATE_WORD_MUTATION}>
-  {({ updateWord }) => (
-    <Button onClick={updateWord} />
-  )}
+  {({ updateWord }) => <Button onClick={updateWord} />}
 </Mutation>
 ```
 
@@ -234,9 +228,7 @@ passing them around my component. Awkward.
 
 ```jsx
 <Mutation mutation={UPDATE_WORD_MUTATION}>
-  {({ updateWord }) => (
-    <Button onClick={processData(event, updateWord)} />
-  )}
+  {({ updateWord }) => <Button onClick={processData(event, updateWord)} />}
 </Mutation>
 ```
 
@@ -267,7 +259,7 @@ the initial load.
 I'm still a huge [Zeit](https://zeit.co/) fanboy, but Next.js wasn't the right
 fit for this project.
 
-I didn't *really* need SSR, as users have to log in to see pages. And it turned
+I didn't _really_ need SSR, as users have to log in to see pages. And it turned
 out to combo poorly with Apollo and make development confusing.
 
 For example, if I wrote a bad GraphQL query, usually I'd see the error in the
@@ -283,4 +275,3 @@ public-facing and a little less data-hungry.
 
 [^1]: Polling isn't the best way to sync live data and will probably overwork your server if you use it everywhere. Apollo provides plenty of customizations and other options here.
 [^2]: We set the word’s optimistic ID to -1. That’s because IDs are set by the server, and our new word doesn’t have one yet. Not to worry, Apollo is magic and swaps the new ID in under the hood!
-

@@ -1,6 +1,8 @@
 export const meta = {
-  title: "Hassle-free side project email setup",
-  date: "2018-04-05T10:00:00-08:00",
+  title: 'Hassle-free side project email setup',
+  date: '2018-04-05T10:00:00-08:00',
+  bannerColor: '#EEEEFF',
+  bannerUrl: '/static/img/side-project-emails-banner.png',
 }
 
 I recently had to add password-reset emails to my project
@@ -97,7 +99,6 @@ def self.reset_password(user)
     .post(request_body: mail.to_json)
 end
 ```
-
 
 ## Manual emails
 
