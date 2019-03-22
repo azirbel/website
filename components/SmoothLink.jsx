@@ -3,7 +3,7 @@ import { NextTransitionContext } from '../pages/_app'
 import { withRouter } from 'next/router'
 import STRUCTURE from '../content/structure'
 
-function SmoothLink({ prefetch, href, target, children, router }) {
+function SmoothLink({ prefetch, href, target, children, router, className }) {
   const from = router.pathname
   const to = href
 
@@ -24,9 +24,12 @@ function SmoothLink({ prefetch, href, target, children, router }) {
   return (
     <NextTransitionContext.Consumer>
       {({ updateNextTransition }) => (
-        <Link prefetch={prefetch} href={href}>
+        <Link prefetch={prefetch} href={href || from}>
           <a
+            disabled={!href}
+            className={className}
             target={target}
+            onClick={event => !href && event.stopPropagation()}
             onMouseEnter={() => {
               updateNextTransition(nextTransition)
             }}

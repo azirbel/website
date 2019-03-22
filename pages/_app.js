@@ -40,9 +40,12 @@ export default class MyApp extends App {
   }
 
   componentDidUpdate() {
-    if (this.state.transitionClass !== 'none') {
-      this.setState({ transitionClass: 'none' })
-    }
+    // TODO(azirbel): Keep the same transition if the mouse hasn't moved after render
+    // E.g. clicking through a topic
+    // Not sure if this creates other bugs (I think if you nav to the same url you are at, it's a bug)
+    // if (this.state.transitionClass !== 'none') {
+    //   this.setState({ transitionClass: 'none' })
+    // }
   }
 
   updateNextTransition = transitionClass => {
@@ -64,6 +67,11 @@ export default class MyApp extends App {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charSet="utf-8"
+          />
         </Head>
         <NextTransitionContext.Provider
           value={{
@@ -103,7 +111,7 @@ export default class MyApp extends App {
               </div>
             </div>
             <div className="right-sidebar">
-              <SidebarNav />
+              <SidebarNav postName={router.pathname} meta={currentMeta} />
             </div>
           </div>
         </NextTransitionContext.Provider>
