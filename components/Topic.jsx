@@ -1,8 +1,8 @@
 import Layout from '../components/Layout'
 import { Helmet } from 'react-helmet'
 import STRUCTURE from '../content/structure'
-import SmoothLink from '../components/SmoothLink'
 import _ from 'lodash'
+import PostLink from './PostLink'
 
 export default ({ topic, type }) => {
   let posts = []
@@ -10,14 +10,14 @@ export default ({ topic, type }) => {
   if (type === 'tag') {
     posts = _(STRUCTURE)
       .toPairs()
-      .filter(([name, meta]) => _.includes(meta['tags'], topic))
-      .map(([name, meta]) => name)
+      .filter(([_name, meta]) => _.includes(meta['tags'], topic))
+      .map(([name, _meta]) => name)
       .value()
   } else if (type === 'series') {
     posts = _(STRUCTURE)
       .toPairs()
-      .filter(([name, meta]) => meta['series'] === topic)
-      .map(([name, meta]) => name)
+      .filter(([_name, meta]) => meta['series'] === topic)
+      .map(([name, _meta]) => name)
       .value()
   }
 
@@ -28,17 +28,13 @@ export default ({ topic, type }) => {
       <Helmet>
         <title>#{topic}</title>
       </Helmet>
-      <h1 style={{ paddingTop: 200 }}>
+      <h1 style={{ paddingTop: 20 }}>
         {type === 'tag'
           ? `Posts tagged #${topic}`
           : `Posts in the #${topic} series`}
       </h1>
       {posts.map(postSlug => (
-        <div>
-          <SmoothLink key={postSlug} href={postSlug}>
-            {STRUCTURE[postSlug].title}
-          </SmoothLink>
-        </div>
+        <PostLink postSlug={postSlug} />
       ))}
     </Layout>
   )

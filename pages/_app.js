@@ -11,6 +11,7 @@ import Head from 'next/head'
 import '../styles/index.scss'
 import Banner from '../components/Banner'
 import SidebarNav from '../components/SidebarNav'
+import Header from '../components/Header'
 
 export const NextTransitionContext = React.createContext()
 
@@ -81,23 +82,24 @@ export default class MyApp extends App {
           <div className="main">
             <div className="left-sidebar" />
             <div className="content">
-              <AnimateHeight
-                duration={200}
-                height={currentMeta.bannerColor ? 'auto' : 0}
-              >
-                <div
-                  className="banner-bg"
-                  style={{
-                    backgroundColor: currentMeta.bannerColor,
-                  }}
-                >
-                  <Banner
-                    key={currentMeta.bannerUrl}
-                    backgroundColor={currentMeta.bannerColor}
-                    url={currentMeta.bannerUrl}
-                    hasRendered={this.state.hasRendered}
-                  />
-                </div>
+              <AnimateHeight duration={200} height="auto">
+                {currentMeta.bannerColor ? (
+                  <div
+                    className="banner-bg"
+                    style={{
+                      backgroundColor: currentMeta.bannerColor,
+                    }}
+                  >
+                    <Banner
+                      key={currentMeta.bannerUrl}
+                      backgroundColor={currentMeta.bannerColor}
+                      url={currentMeta.bannerUrl}
+                      hasRendered={this.state.hasRendered}
+                    />
+                  </div>
+                ) : (
+                  <Header />
+                )}
               </AnimateHeight>
               <div className="post">
                 <MDXProvider components={MDX_COMPONENTS}>

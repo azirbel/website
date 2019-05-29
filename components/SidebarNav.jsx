@@ -1,13 +1,8 @@
 import SmoothLink from './SmoothLink'
-import {
-  MdHome,
-  MdRssFeed,
-  MdChevronLeft,
-  MdChevronRight,
-} from 'react-icons/md'
-import { IoLogoTwitter } from 'react-icons/io'
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
 import STRUCTURE from '../content/structure'
 import _ from 'lodash'
+import NavIconSet from './NavIconSet'
 
 export default function SidebarNav({ postName, meta }) {
   if (_.isEmpty(meta)) {
@@ -51,21 +46,7 @@ export default function SidebarNav({ postName, meta }) {
       <div className="sidebar-nav-box">
         <div className="sidebar-nav-logo" />
         <div className="sidebar-nav-byline">by Alex Zirbel</div>
-        <div className="sidebar-nav-icons">
-          <SmoothLink prefetch href="/" transition="slide-forward">
-            <MdHome size="24px" />
-          </SmoothLink>
-          <SmoothLink
-            target="_blank"
-            prefetch
-            href="https://twitter.com/alexzirbel/"
-          >
-            <IoLogoTwitter size="24px" />
-          </SmoothLink>
-          <SmoothLink prefetch href="/" transition="slide-forward">
-            <MdRssFeed size="24px" />
-          </SmoothLink>
-        </div>
+        <NavIconSet />
       </div>
       {topics.map(topic => (
         <div key={topic.name} className="sidebar-nav-topic">
