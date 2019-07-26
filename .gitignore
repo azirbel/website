@@ -1,6 +1,7 @@
 .DS_Store
 **/.DS_Store
 .next
+.env
 node_modules
 
 content/structure.js

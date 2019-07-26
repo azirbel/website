@@ -34,7 +34,7 @@ export default ({ topic, type }) => {
           : `Posts in the #${topic} series`}
       </h1>
       {posts.map(postSlug => (
-        <PostLink postSlug={postSlug} />
+        <PostLink key={postSlug} postSlug={postSlug} />
       ))}
     </Layout>
   )

@@ -7,6 +7,7 @@ import AnimateHeight from 'react-animate-height'
 import SmoothLink from '../components/SmoothLink'
 import { MDXProvider } from '@mdx-js/tag'
 import Head from 'next/head'
+import Router from 'next/router'
 
 import '../styles/index.scss'
 import Banner from '../components/Banner'
@@ -19,6 +20,12 @@ const MDX_COMPONENTS = {
   a: SmoothLink,
 }
 
+/*
+Useful router events:
+https://github.com/zeit/next.js/#router-events
+https://github.com/zeit/next.js#intercepting-popstate
+*/
+
 export default class MyApp extends App {
   state = {
     hasRendered: false,
@@ -26,6 +33,14 @@ export default class MyApp extends App {
   }
 
   componentDidMount() {
+    // Router.beforePopState(({ url, as, options }) => {
+    //   console.log('before ', url, as, options)
+    //   return true
+    // })
+    Router.events.on('routeChangeStart', url => {
+      console.log('App is changing to: ', url)
+      this.updateTransitionFromRouteChange(url)
+    })
     this.setState({ hasRendered: true })
   }
 
@@ -47,6 +62,27 @@ export default class MyApp extends App {
     // if (this.state.transitionClass !== 'none') {
     //   this.setState({ transitionClass: 'none' })
     // }
+  }
+
+  updateTransitionFromRouteChange = to => {
+    const from = this.props.router.pathname
+    console.log(from, to)
+
+    const fromMeta = STRUCTURE[from]
+    const toMeta = STRUCTURE[to]
+
+    let nextTransition = 'none'
+
+    if (from === to) {
+      nextTransition = 'none'
+    } else if (toMeta && fromMeta) {
+      nextTransition =
+        toMeta.date > fromMeta.date ? 'slide-forward' : 'slide-backward'
+    } else if (to === '/' || from === '/') {
+      nextTransition = 'opacity-in'
+    }
+    console.log('Next:', nextTransition)
+    this.updateNextTransition(nextTransition)
   }
 
   updateNextTransition = transitionClass => {
@@ -76,7 +112,7 @@ export default class MyApp extends App {
         </Head>
         <NextTransitionContext.Provider
           value={{
-            updateNextTransition: this.updateNextTransition,
+            updateNextTransition: () => {},
           }}
         >
           <div className="main">
