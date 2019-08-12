@@ -42,6 +42,8 @@ export default class MyApp extends App {
       this.updateTransitionFromRouteChange(url)
     })
     this.setState({ hasRendered: true })
+
+    document.documentElement.setAttribute('data-theme', 'dark')
   }
 
   // Use something like this to prevent re-renders when we change the "which direction" state

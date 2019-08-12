@@ -8,12 +8,13 @@
 @import './transitions/slide-up.scss';
 @import './transitions/slide-down.scss';
 
-:root {
+html {
   --primaryColor: #6457e8;
   --primaryColorDark: #33208a;
   --primaryColorLight: #dfdfff;
   --red: #aa0000;
   --textColor: #232929;
+  --linkColor: var(--primaryColor);
 
   --darkGray: #37324e;
   --mediumDarkGray: #6f6b83;
@@ -28,6 +29,15 @@
   --transitionTiming: 200ms;
   --transitionTimingFast: 100ms;
   --transitionTimingSlow: 400ms;
+
+  // For theme changes
+  transition: all ease-in-out var(--transitionTimingSlow);
+}
+
+html[data-theme='dark'] {
+  background-color: #130a3c;
+  --textColor: white;
+  --linkColor: var(--primaryColorLight);
 }
 
 body {
