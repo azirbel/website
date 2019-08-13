@@ -1,0 +1,14 @@
+.page-opacity-enter {
+  opacity: 0;
+}
+.page-opacity-enter-active {
+  opacity: 1;
+  transition: all var(--transitionTiming);
+}
+.page-opacity-exit {
+  opacity: 1;
+}
+.page-opacity-exit-active {
+  opacity: 0;
+  transition: all var(--transitionTiming);
+}

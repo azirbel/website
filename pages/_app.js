@@ -1,9 +1,9 @@
 import App, { Container } from 'next/app'
 import React from 'react'
 import { PageTransition } from 'next-page-transitions'
+import { CSSTransition } from 'react-transition-group'
 import STRUCTURE from '../content/structure'
 import _ from 'lodash'
-import AnimateHeight from 'react-animate-height'
 import SmoothLink from '../components/SmoothLink'
 import { MDXProvider } from '@mdx-js/tag'
 import Head from 'next/head'
@@ -34,7 +34,7 @@ export default class MyApp extends App {
 
     // TODO(azirbel): Remove this and add a toggle.
     // But it should also persist in a cookie and work without JS...
-    document.documentElement.setAttribute('data-theme', 'dark')
+    // document.documentElement.setAttribute('data-theme', 'dark')
   }
 
   // Use something like this to prevent re-renders when we change the "which direction" state
@@ -60,12 +60,18 @@ export default class MyApp extends App {
     } else if (toMeta && fromMeta) {
       nextTransition =
         toMeta.date > fromMeta.date ? 'slide-forward' : 'slide-backward'
-    } else if (to === '/' || from === '/') {
-      nextTransition = 'opacity-in'
+    } else if (fromMeta && !toMeta) {
+      nextTransition = 'slide-up'
+    } else if (!fromMeta && toMeta) {
+      nextTransition = 'slide-down'
+    } else {
+      nextTransition = 'opacity'
     }
 
     if (nextTransition !== this.state.nextTransition) {
-      this.setState({ nextTransition: nextTransition })
+      this.setState({
+        nextTransition: nextTransition,
+      })
     }
   }
 
@@ -92,32 +98,28 @@ export default class MyApp extends App {
         <div className="main">
           <div className="left-sidebar" />
           <div className="content">
-            <AnimateHeight duration={200} height="auto">
-              {currentMeta.bannerColor ? (
-                <div
-                  className="banner-bg"
-                  style={{
-                    backgroundColor: currentMeta.bannerColor,
-                  }}
-                >
+            <CSSTransition
+              in={!!currentMeta.bannerUrl}
+              classNames={`opacity`}
+              timeout={{ enter: 200, exit: 180 }}
+            >
+              <div>
+                <div className="banner-bg">
                   <Banner
                     key={currentMeta.bannerUrl}
-                    backgroundColor={currentMeta.bannerColor}
                     url={currentMeta.bannerUrl}
                     hasRendered={this.state.hasRendered}
                   />
                 </div>
-              ) : (
-                <Header />
-              )}
-            </AnimateHeight>
+              </div>
+            </CSSTransition>
             <div className="post">
               <MDXProvider components={MDX_COMPONENTS}>
                 <PageTransition
-                  timeout={200}
-                  classNames={this.state.nextTransition}
+                  timeout={{ enter: 200, exit: 100 }}
+                  classNames={`page-${this.state.nextTransition}`}
                 >
-                  <Component {...pageProps} />
+                  <Component {...pageProps} key={router.route} />
                 </PageTransition>
               </MDXProvider>
             </div>

@@ -14,7 +14,11 @@ export default function Banner({ hasRendered, url }) {
         style={{ width: 0, height: 0, visibility: 'hidden' }}
         onLoad={onImageLoad}
       />
-      <CSSTransition in={showImage} timeout={400} classNames="opacity-slow">
+      <CSSTransition
+        in={showImage}
+        timeout={{ enter: 200, exit: 200 }}
+        classNames="transition-opacity"
+      >
         {showImage ? (
           <div
             className="banner-image"

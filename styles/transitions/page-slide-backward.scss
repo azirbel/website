@@ -1,0 +1,18 @@
+.page-slide-backward-enter {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.page-slide-backward-enter-active {
+  opacity: 1;
+  transition: all var(--transitionTiming);
+  transform: translateX(0);
+}
+.page-slide-backward-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.page-slide-backward-exit-active {
+  opacity: 0;
+  transition: all var(--transitionTiming);
+  transform: translateX(20px);
+}

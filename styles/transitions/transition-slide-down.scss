@@ -1,0 +1,20 @@
+.transition-slide-up-enter,
+.transition-slide-up-enter-active {
+  transform: translateY(20px);
+  opacity: 0;
+}
+.transition-slide-up-enter-done {
+  opacity: 1;
+  transition: all var(--transitionTiming);
+  transform: translateY(0);
+}
+.transition-slide-up-exit,
+.transition-slide-up-exit-active {
+  transform: translateY(0);
+  opacity: 1;
+}
+.transition-slide-up-exit-done {
+  opacity: 0;
+  transition: all var(--transitionTiming);
+  transform: translateY(-20px);
+}

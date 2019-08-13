@@ -1,12 +1,15 @@
 @import './fonts.scss';
 @import './typography.scss';
 
-@import './transitions/opacity.scss';
-@import './transitions/opacity-slow.scss';
-@import './transitions/slide-forward.scss';
-@import './transitions/slide-backward.scss';
-@import './transitions/slide-up.scss';
-@import './transitions/slide-down.scss';
+@import './transitions/page-opacity.scss';
+@import './transitions/page-slide-backward.scss';
+@import './transitions/page-slide-down.scss';
+@import './transitions/page-slide-forward.scss';
+@import './transitions/page-slide-up.scss';
+
+@import './transitions/transition-opacity.scss';
+@import './transitions/transition-slide-down.scss';
+@import './transitions/transition-slide-up.scss';
 
 html {
   --primaryColor: #6457e8;
@@ -91,7 +94,6 @@ $sidebar-width: 240px;
   max-width: $content-width;
   height: 240px;
   width: 100%;
-  background-color: #444499;
   border-radius: var(--borderRadiusLarge);
   transition: background-color 400ms ease-in-out;
 }
@@ -214,6 +216,20 @@ $sidebar-width: 240px;
 
 .hidden-desktop {
   display: none;
+}
+
+.posted-on {
+  margin-top: 40px;
+  font-style: italic;
+}
+
+.post-footer {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background: var(--darkWhite);
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: var(--borderRadiusLarge);
 }
 
 @media (max-width: $content-width + $sidebar-width) {

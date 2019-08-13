@@ -1,0 +1,16 @@
+.transition-opacity-enter,
+.transition-opacity-enter-active {
+  opacity: 0;
+}
+.transition-opacity-enter-done {
+  opacity: 1;
+  transition: all var(--transitionTiming);
+}
+.transition-opacity-exit,
+.transition-opacity-exit-active {
+  opacity: 1;
+}
+.transition-opacity-exit-done {
+  opacity: 0;
+  transition: all var(--transitionTiming);
+}
