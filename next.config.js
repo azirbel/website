@@ -14,15 +14,5 @@ module.exports = (phase, { defaultConfig }) => {
     extension: /\.(md|mdx)$/,
   })
   const withSass = require('@zeit/next-sass')
-  return Object.assign(
-    {
-      exportTrailingSlash: false,
-      exportPathMap: function() {
-        return {
-          '/': { page: '/' },
-        }
-      },
-    },
-    withSass(withMDX())
-  )
+  return withSass(withMDX())
 }
