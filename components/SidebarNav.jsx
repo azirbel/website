@@ -4,11 +4,7 @@ import STRUCTURE from '../content/structure'
 import _ from 'lodash'
 import NavIconSet from './NavIconSet'
 
-export default function SidebarNav({ postName, meta }) {
-  if (_.isEmpty(meta)) {
-    // topic page
-    return null
-  }
+export default function SidebarNav({ postName, meta = {} }) {
   let topics = []
   if (meta.series) {
     let postsInSeries = _(STRUCTURE)
@@ -25,7 +21,8 @@ export default function SidebarNav({ postName, meta }) {
       next: postsInSeries[currentPostIdx + 1],
     })
   }
-  ;(meta.tags || []).forEach(tag => {
+
+  _.get(meta, 'tags', []).forEach(tag => {
     let postsWithTag = _(STRUCTURE)
       .toPairs()
       .filter(([_name, postMeta]) => _.includes(postMeta.tags, tag))
