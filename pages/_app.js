@@ -88,6 +88,12 @@ export default class MyApp extends App {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
+          <link
+            rel="icon"
+            type="image/png"
+            href="/static/favicon.png"
+            sizes="32x32"
+          />
           <script
             async
             src="https://platform.twitter.com/widgets.js"

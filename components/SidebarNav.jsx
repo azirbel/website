@@ -44,7 +44,10 @@ export default function SidebarNav({ postName, meta }) {
   return (
     <div className="sidebar-nav">
       <div className="sidebar-nav-box">
-        <div className="sidebar-nav-logo" />
+        <div
+          className="sidebar-nav-logo"
+          style={{ backgroundImage: "url('/static/img/logo-bg-square.png')" }}
+        ></div>
         <div className="sidebar-nav-byline">by Alex Zirbel</div>
         <NavIconSet />
       </div>

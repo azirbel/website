@@ -138,6 +138,8 @@ $sidebar-width: 240px;
   background-color: white;
   border: 6px solid var(--darkWhite);
   border-radius: 50%;
+  background-position: center;
+  background-size: contain;
 }
 
 .sidebar-nav-byline {
@@ -230,6 +232,16 @@ $sidebar-width: 240px;
   text-align: center;
   padding: 40px 30px;
   border-radius: var(--borderRadiusLarge);
+}
+
+img.small {
+  max-width: 100px;
+}
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: $content-width + $sidebar-width) {

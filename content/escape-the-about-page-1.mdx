@@ -1,6 +1,7 @@
 export const meta = {
   title: 'Escape the About Page, Episode 1',
   date: '2016-09-12T19:00:00-08:00',
+  bannerUrl: '/static/img/escape-1-banner.png',
   series: 'escape',
   tags: ['personal'],
 }
@@ -15,12 +16,12 @@ take these and put them on our
 
 When I joined in August 2015, the same artist drew a picture of me:
 
-<img class="small center" src="/static/img/alex-emoji1.png" />
+<img className="small center" src="/static/img/alex-emoji1.png" />
 
 I didn't really like it, so I asked for another one. Version 2 looked like
 this:
 
-<img class="small center" src="/static/img/alex-emoji2.png" />
+<img className="small center" src="/static/img/alex-emoji2.png" />
 
 I didn't really like version 2 either, but I had to admit that the problem was
 probably me. Since I didn't want to ask for a third version, I just skipped the
@@ -81,16 +82,13 @@ The HTML for our "about" page looks like this:
 
 ```html
 <li class="col-md-3 col-sm-4 col-xs-12">
-  <img
-    class="img-circle"
-    src="/path/to/assets/about_us/emoji/alexz.png"/>
+  <img class="img-circle" src="/path/to/assets/about_us/emoji/alexz.png" />
   <div class="prose">
     <h4>Alex Zirbel</h4>
     <h5>Engineering</h5>
     <p>
-      Alex joins us from Addepar, where he worked
-      as a frontend engineer. Before that, he
-      studied robotics at Carnegie Mellon.
+      Alex joins us from Addepar, where he worked as a frontend engineer. Before
+      that, he studied robotics at Carnegie Mellon.
     </p>
   </div>
 </li>
@@ -100,7 +98,8 @@ I wrote some CSS so that whenever an image has "alexz" in its filename, it will
 be invisible.
 
 ```css
-img[src*=alexz], img[src*=alexz] + div {
+img[src*='alexz'],
+img[src*='alexz'] + div {
   display: none;
 }
 ```
@@ -108,16 +107,21 @@ img[src*=alexz], img[src*=alexz] + div {
 **Step 3**: Hide the new code.
 
 1. Instead of checking for "alexz" in an image's filename, just check for
-   "exz".  That does the same thing, but it's less obvious.
+   "exz". That does the same thing, but it's less obvious.
 2. "exz" looks a little like "exclude", so add a fake `.button-exclude` style
    to make things look more legitimate.
 
 ```css
-input[type=submit], input[type=reset], button, .button {
+input[type='submit'],
+input[type='reset'],
+button,
+.button {
   // 78 lines of code
 }
 
-.button-exclude, img[src*=exz], img[src*=exz] + div {
+.button-exclude,
+img[src*='exz'],
+img[src*='exz'] + div {
   display: none;
 }
 
