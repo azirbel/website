@@ -12,10 +12,11 @@ import Router from 'next/router'
 import '../styles/index.scss'
 import Banner from '../components/Banner'
 import SidebarNav from '../components/SidebarNav'
-import Header from '../components/Header'
+import SyntaxHighlight from '../components/SyntaxHighlight'
 
 const MDX_COMPONENTS = {
   a: SmoothLink,
+  code: SyntaxHighlight,
 }
 
 export default class MyApp extends App {
