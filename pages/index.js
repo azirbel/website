@@ -17,7 +17,7 @@ export default () => (
     <Helmet>
       <title>Alex Zirbel</title>
     </Helmet>
-    <h1 style={{ paddingTop: 20 }}>Welcome!</h1>
+    <h1>Welcome!</h1>
     <p>I’m Alex Zirbel, an independent software developer based in SF.</p>
     <p>
       I’m a full-stack developer who likes to focus on product and design.

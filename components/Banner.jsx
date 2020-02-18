@@ -1,5 +1,6 @@
 import { CSSTransition } from 'react-transition-group'
 import React, { useState } from 'react'
+import _ from 'lodash'
 
 export default function Banner({ hasRendered, url }) {
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -24,7 +25,9 @@ export default function Banner({ hasRendered, url }) {
             className="banner-image"
             style={{
               backgroundImage: `url(${url})`,
-              backgroundPosition: 'center',
+              backgroundPosition: _.includes(url, 'home-banner')
+                ? 'top'
+                : 'center',
               backgroundSize: 'cover',
             }}
           />

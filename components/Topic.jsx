@@ -28,7 +28,7 @@ export default ({ topic, type }) => {
       <Helmet>
         <title>#{topic}</title>
       </Helmet>
-      <h1 style={{ paddingTop: 20 }}>
+      <h1>
         {type === 'tag'
           ? `Posts tagged #${topic}`
           : `Posts in the #${topic} series`}

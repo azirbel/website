@@ -84,6 +84,11 @@ export default class MyApp extends App {
       currentMeta = STRUCTURE[router.pathname]
     }
 
+    let bannerUrl =
+      router.pathname === '/'
+        ? '/static/img/home-banner.png'
+        : currentMeta.bannerUrl
+
     return (
       <Container>
         <Head>
@@ -106,15 +111,15 @@ export default class MyApp extends App {
           <div className="left-sidebar" />
           <div className="content">
             <CSSTransition
-              in={!!currentMeta.bannerUrl}
+              in={!!bannerUrl}
               classNames={`opacity`}
               timeout={{ enter: 200, exit: 180 }}
             >
               <div>
                 <div className="banner-bg">
                   <Banner
-                    key={currentMeta.bannerUrl}
-                    url={currentMeta.bannerUrl}
+                    key={bannerUrl}
+                    url={bannerUrl}
                     hasRendered={this.state.hasRendered}
                   />
                 </div>

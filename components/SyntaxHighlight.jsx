@@ -80,7 +80,7 @@ const Theme = {
 }
 
 export default ({ children, className }) => {
-  const language = className.replace(/language-/, '')
+  const language = (className || '').replace(/language-/, '')
 
   return (
     <Highlight
