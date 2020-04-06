@@ -19,7 +19,11 @@ export default ({ Content, meta }) => (
       })}
     </div>
     <div className="post-footer">
-      <img height="36" src="/static/img/logo2019.png" />
+      <img
+        className="post-footer-logo"
+        height="50"
+        src="/static/img/logo.png"
+      />
       <p>
         Hi, I'm <SmoothLink href="/">Alex Zirbel</SmoothLink>. I'm an
         independent

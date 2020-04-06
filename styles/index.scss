@@ -97,7 +97,7 @@ $sidebar-width: 240px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   max-width: $content-width;
   height: 240px;
   width: 100%;
@@ -233,12 +233,19 @@ $sidebar-width: 240px;
 }
 
 .post-footer {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 100px;
   background: var(--darkWhite);
   text-align: center;
   padding: 40px 30px;
   border-radius: var(--borderRadiusLarge);
+}
+
+.post-footer-logo {
+  margin-top: 0;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img {

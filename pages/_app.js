@@ -105,9 +105,16 @@ export default class MyApp extends App {
           <link
             rel="icon"
             type="image/png"
-            href="/static/favicon.png"
+            href="/static/favicon-32x32.png"
             sizes="32x32"
           />
+          <link
+            rel="icon"
+            type="image/png"
+            href="/static/favicon-16x16.png"
+            sizes="16x16"
+          />
+
           <script
             async
             src="https://platform.twitter.com/widgets.js"
