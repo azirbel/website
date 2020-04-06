@@ -8,6 +8,7 @@ import SmoothLink from '../components/SmoothLink'
 import { MDXProvider } from '@mdx-js/tag'
 import Head from 'next/head'
 import Router from 'next/router'
+import * as Fathom from 'fathom-client'
 
 import '../styles/index.scss'
 import Banner from '../components/Banner'
@@ -26,8 +27,18 @@ export default class MyApp extends App {
   }
 
   componentDidMount() {
+    Fathom.load()
+    Fathom.setSiteId(
+      process.env.NODE_ENV === 'production' ? 'ECJUDSBP' : 'KCHZDHGE'
+    )
+    Fathom.trackPageview()
+
     Router.events.on('routeChangeStart', url => {
       this.updateTransitionFromRouteChange(url)
+    })
+
+    Router.events.on('routeChangeComplete', () => {
+      Fathom.trackPageview()
     })
 
     // TODO(azirbel): Do we still need this?
