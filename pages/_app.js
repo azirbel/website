@@ -95,7 +95,9 @@ export default class MyApp extends App {
       currentMeta = STRUCTURE[router.pathname]
     }
 
-    let bannerUrl = currentMeta.bannerUrl || '/static/img/home-banner.png'
+    let bannerUrl =
+      currentMeta.banner ||
+      'https://playbook-beta.imgix.net/e47c71a1-3ccd-45df-b527-aab567556aa4'
 
     return (
       <Container>
@@ -114,7 +116,6 @@ export default class MyApp extends App {
             href="/static/favicon-16x16.png"
             sizes="16x16"
           />
-
           <script
             async
             src="https://platform.twitter.com/widgets.js"

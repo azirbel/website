@@ -5,7 +5,7 @@ export default ({ postSlug }) => {
   return (
     <div>
       <SmoothLink key={postSlug} href={postSlug}>
-        {/* <img width={80} src={STRUCTURE[postSlug].bannerUrl} /> */}
+        {/* <img width={80} src={STRUCTURE[postSlug].banner} /> */}
         {STRUCTURE[postSlug].title}
       </SmoothLink>
     </div>

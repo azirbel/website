@@ -6,6 +6,8 @@ export default ({ Content, meta }) => (
   <Layout>
     <Helmet>
       <title>{meta.title}</title>
+      <meta property="og:title" content={meta.title} />
+      <meta property="og:image" content={meta.banner} />
     </Helmet>
     <h1>{meta.title}</h1>
     <div className="hidden-desktop">by Alex Zirbel</div>
