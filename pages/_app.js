@@ -84,10 +84,7 @@ export default class MyApp extends App {
       currentMeta = STRUCTURE[router.pathname]
     }
 
-    let bannerUrl =
-      router.pathname === '/'
-        ? '/static/img/home-banner.png'
-        : currentMeta.bannerUrl
+    let bannerUrl = currentMeta.bannerUrl || '/static/img/home-banner.png'
 
     return (
       <Container>

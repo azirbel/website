@@ -6,14 +6,14 @@ import _ from 'lodash'
 
 const Theme = {
   plain: {
-    color: '#393A34',
+    color: 'var(--darkGray)',
     backgroundColor: 'transparent',
   },
   styles: [
     {
       types: ['comment', 'prolog', 'doctype', 'cdata'],
       style: {
-        color: '#999988',
+        color: 'var(--mediumDarkGray)',
         fontStyle: 'italic',
       },
     },
@@ -26,13 +26,13 @@ const Theme = {
     {
       types: ['string', 'attr-value'],
       style: {
-        color: '#e3116c',
+        color: 'var(--red)',
       },
     },
     {
       types: ['punctuation', 'operator'],
       style: {
-        color: '#393A34',
+        color: 'var(--darkGray)',
       },
     },
     {
@@ -49,31 +49,31 @@ const Theme = {
         'inserted',
       ],
       style: {
-        color: '#36acaa',
+        color: 'var(--primaryColor)',
       },
     },
     {
       types: ['atrule', 'keyword', 'attr-name', 'selector'],
       style: {
-        color: '#00a4db',
+        color: 'var(--blue)',
       },
     },
     {
       types: ['function', 'deleted', 'tag'],
       style: {
-        color: '#d73a49',
+        color: 'var(--cyanDark)',
       },
     },
     {
       types: ['function-variable'],
       style: {
-        color: '#6f42c1',
+        color: 'var(--primaryColorDark)',
       },
     },
     {
       types: ['tag', 'selector', 'keyword'],
       style: {
-        color: 'var(--primaryColor)',
+        color: 'var(--primaryColorDark)',
       },
     },
   ],
