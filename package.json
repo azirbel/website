@@ -8,7 +8,7 @@
     "@zeit/next-mdx": "^1.2.0",
     "@zeit/next-sass": "^1.0.1",
     "fathom-client": "^2.0.3",
-    "next": "^9.0.3",
+    "next": "^11.1.0",
     "next-page-transitions": "^1.0.0-alpha.6",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.1",
